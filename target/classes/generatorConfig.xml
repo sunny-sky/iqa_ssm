@@ -36,84 +36,197 @@
         </javaClientGenerator>
  
         <!--生成对应表及类名-->
-        <!--category1表及类名--> 
-        <table tableName="tbl_user" domainObjectName="user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        <!--tbl_user表及类名--> 
+        <!-- <table tableName="tbl_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        
-        
-        <table tableName="category2" domainObjectName="Category2" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table> -->
+<!--000-->        
+        <!--1tbl_advise表及类名-->
+        <!-- <table tableName="tbl_advise" domainObjectName="Advise" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>        
         
-        
-        <table tableName="answer" domainObjectName="Answer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        2tbl_agree表及类名
+        <table tableName="tbl_agree" domainObjectName="Agree" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>         
         
-      
-        <table tableName="cltproblem" domainObjectName="CltProblem" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+      	3tbl_basicconfigure表及类名
+        <table tableName="tbl_basicconfigure" domainObjectName="BasicConfigure" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>        
         
-        
-        <table tableName="question" domainObjectName="Question" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        4tbl_collection表及类名
+        <table tableName="tbl_collection" domainObjectName="Collection" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>          
+                     
+    	5tbl_comment表及类名
+        <table tableName="tbl_comment" domainObjectName="Comment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table> -->       
+<!--111-->        
+      	<!--1.1 tbl_communityanswer表及类名 -->
+        <!-- <table tableName="tbl_communityanswer" domainObjectName="CommunityAnswer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>   
         
-
-              
-    
-        <table tableName="reply" domainObjectName="Reply" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+       	1.2 tbl_communityquestion表及类名
+        <table tableName="tbl_communityquestion" domainObjectName="CommunityQuestion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>   
+        
+       	1.3 tbl_computer表及类名
+        <table tableName="tbl_computer" domainObjectName="Computer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>  
+        
+      	1.4 tbl_configure表及类名
+        <table tableName="tbl_configure" domainObjectName="Configure" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>  
+        
+       	1.5 tbl_configurehistory表及类名
+        <table tableName="tbl_configurehistory" domainObjectName="ConfigureHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table> -->   
+<!--222-->        
+        <!--2.1 tbl_currentconfigure表及类名 -->
+        <!-- <table tableName="tbl_currentconfigure" domainObjectName="CurrentConfigure" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        
+        2.2 tbl_currentequipment表及类名
+        <table tableName="tbl_currentequipment" domainObjectName="CurrentEquipment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        
+        2.3 tbl_datadictionary表及类名
+        <table tableName="tbl_datadictionary" domainObjectName="DataDictionary" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>    
+        
+        2.4 tbl_department表及类名
+        <table tableName="tbl_department" domainObjectName="Department" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table> 
+        
+        2.5 tbl_driver表及类名
+        <table tableName="tbl_driver" domainObjectName="Driver" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table> --> 
+        
+<!--333-->        
+        <!--3.1 tbl_equipment表及类名 -->
+        <!-- <table tableName="tbl_equipment" domainObjectName="Equipment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        
+        3.2 tbl_equipment_basicconfigure表及类名
+        <table tableName="tbl_equipment_basicconfigure" domainObjectName="EquipmentBasicConfigure" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>   
+        
+        3.3 tbl_equipments表及类名
+        <table tableName="tbl_equipments" domainObjectName="Equipments" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>   
+        
+        3.4 tbl_faqanswer表及类名
+        <table tableName="tbl_faqanswer" domainObjectName="FaqAnswer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>      
+        
+        3.5 tbl_faqclassify表及类名
+        <table tableName="tbl_faqclassify" domainObjectName="FaqClassify" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>  --> 
+        
+<!--444-->        
+        <!--4.1 tbl_faqpicture表及类名 -->
+        <!-- <table tableName="tbl_faqpicture" domainObjectName="FaqPicture" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>     
+        
+        4.2 tbl_faqquestion表及类名
+        <table tableName="tbl_faqquestion" domainObjectName="FaqQuestion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        
+        4.3 tbl_faqvideo表及类名
+        <table tableName="tbl_faqvideo" domainObjectName="FaqVideo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        
+        4.4 tbl_generaluser表及类名
+        <table tableName="tbl_generaluser" domainObjectName="GeneralUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>  
+        
+        4.5 tbl_it表及类名
+        <table tableName="tbl_it" domainObjectName="It" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="my.isgen.usekeys" value="true"/>
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table> --> 
+        
+<!--555未生成-->        
+        <!--5.1 tbl_faqpicture表及类名 -->
+        <table tableName="" domainObjectName="" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>       
-        
-      
-        <table tableName="rptanswer" domainObjectName="RptAnswer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>   
-        
-       
-        <table tableName="rptproblem" domainObjectName="RptProblem" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>   
-        
-       
-        <table tableName="rptreply" domainObjectName="RptReply" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>  
-        
-      
-        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>  
-        
-       
-        <table tableName="userlike" domainObjectName="UserLike" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>        
        
     </context>
 </generatorConfiguration>

@@ -1,21 +1,21 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.user;
-import com.xjtu.iqa.pojo.userExample;
+import com.xjtu.iqa.pojo.User;
+import com.xjtu.iqa.pojo.UserExample;
 import java.util.List;
 
-public interface userMapper {
+public interface UserMapper {
     int deleteByPrimaryKey(String USERID);
 
-    int insert(user record);
+    int insert(User record);
 
-    int insertSelective(user record);
+    int insertSelective(User record);
 
-    List<user> selectByExample(userExample example);
+    List<User> selectByExample(UserExample example);
 
-    user selectByPrimaryKey(String USERID);
+    User selectByPrimaryKey(String USERID);
 
-    int updateByPrimaryKeySelective(user record);
+    int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(user record);
+    int updateByPrimaryKey(User record);
 }

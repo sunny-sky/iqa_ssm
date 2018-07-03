@@ -1,6 +1,6 @@
 package com.xjtu.iqa.pojo;
 
-public class user {
+public class User {
     private String USERID;
 
     private String USERNAME;
