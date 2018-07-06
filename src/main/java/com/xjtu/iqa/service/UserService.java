@@ -2,7 +2,7 @@ package com.xjtu.iqa.service;
 
 import java.util.List;
 
-import com.xjtu.iqa.pojo.User;
+import com.xjtu.iqa.po.User;
 
 public interface UserService {
 	void add(User u);    

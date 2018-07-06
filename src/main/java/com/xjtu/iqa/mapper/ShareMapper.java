@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Share;
-import com.xjtu.iqa.pojo.ShareExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Share;
+import com.xjtu.iqa.po.ShareExample;
 
 public interface ShareMapper {
     int deleteByPrimaryKey(String SHAREID);

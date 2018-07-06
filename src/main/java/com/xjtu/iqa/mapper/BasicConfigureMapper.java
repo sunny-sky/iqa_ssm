@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.BasicConfigure;
-import com.xjtu.iqa.pojo.BasicConfigureExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.BasicConfigure;
+import com.xjtu.iqa.po.BasicConfigureExample;
 
 public interface BasicConfigureMapper {
     int deleteByPrimaryKey(String BASICCONFIGURE);

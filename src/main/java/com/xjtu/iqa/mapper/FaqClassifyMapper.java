@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.FaqClassify;
-import com.xjtu.iqa.pojo.FaqClassifyExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.FaqClassify;
+import com.xjtu.iqa.po.FaqClassifyExample;
 
 public interface FaqClassifyMapper {
     int deleteByPrimaryKey(String FAQCLASSIFYID);

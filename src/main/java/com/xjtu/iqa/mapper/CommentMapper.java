@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Comment;
-import com.xjtu.iqa.pojo.CommentExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Comment;
+import com.xjtu.iqa.po.CommentExample;
 
 public interface CommentMapper {
     int deleteByPrimaryKey(String COMMENTID);

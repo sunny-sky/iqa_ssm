@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.DataDictionary;
-import com.xjtu.iqa.pojo.DataDictionaryExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.DataDictionary;
+import com.xjtu.iqa.po.DataDictionaryExample;
 
 public interface DataDictionaryMapper {
     int deleteByPrimaryKey(String DATADICTIONARYID);

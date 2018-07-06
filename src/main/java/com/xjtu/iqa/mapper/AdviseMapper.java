@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Advise;
-import com.xjtu.iqa.pojo.AdviseExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Advise;
+import com.xjtu.iqa.po.AdviseExample;
 
 public interface AdviseMapper {
     int deleteByPrimaryKey(String ADVISEID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.CommunityQuestion;
-import com.xjtu.iqa.pojo.CommunityQuestionExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.CommunityQuestion;
+import com.xjtu.iqa.po.CommunityQuestionExample;
 
 public interface CommunityQuestionMapper {
     int deleteByPrimaryKey(String COMMUNITYQUESTIONID);

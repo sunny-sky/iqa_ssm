@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Score;
-import com.xjtu.iqa.pojo.ScoreExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Score;
+import com.xjtu.iqa.po.ScoreExample;
 
 public interface ScoreMapper {
     int deleteByPrimaryKey(String SCOREID);

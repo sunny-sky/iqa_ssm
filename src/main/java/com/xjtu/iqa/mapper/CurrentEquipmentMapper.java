@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.CurrentEquipment;
-import com.xjtu.iqa.pojo.CurrentEquipmentExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.CurrentEquipment;
+import com.xjtu.iqa.po.CurrentEquipmentExample;
 
 public interface CurrentEquipmentMapper {
     int deleteByPrimaryKey(String EQUIPMENTID);

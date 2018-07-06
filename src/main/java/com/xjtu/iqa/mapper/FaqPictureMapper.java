@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.FaqPicture;
-import com.xjtu.iqa.pojo.FaqPictureExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.FaqPicture;
+import com.xjtu.iqa.po.FaqPictureExample;
 
 public interface FaqPictureMapper {
     int deleteByPrimaryKey(String FAQPICTUREID);

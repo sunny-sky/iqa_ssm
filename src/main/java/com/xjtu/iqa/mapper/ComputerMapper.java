@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Computer;
-import com.xjtu.iqa.pojo.ComputerExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Computer;
+import com.xjtu.iqa.po.ComputerExample;
 
 public interface ComputerMapper {
     int deleteByPrimaryKey(String EQUIPMENTID);

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.iqa.mapper.RobotAnswerMapper;
-import com.xjtu.iqa.pojo.RobotAnswer;
-import com.xjtu.iqa.pojo.RobotAnswerExample;
+import com.xjtu.iqa.po.RobotAnswer;
+import com.xjtu.iqa.po.RobotAnswerExample;
 import com.xjtu.iqa.service.RobotAnswerService;
 
 

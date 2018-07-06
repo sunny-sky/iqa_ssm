@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.iqa.mapper.FaqQuestionMapper;
-import com.xjtu.iqa.pojo.FaqQuestion;
-import com.xjtu.iqa.pojo.FaqQuestionExample;
+import com.xjtu.iqa.po.FaqQuestion;
+import com.xjtu.iqa.po.FaqQuestionExample;
 import com.xjtu.iqa.service.FaqQuestionService;
 
 @Service

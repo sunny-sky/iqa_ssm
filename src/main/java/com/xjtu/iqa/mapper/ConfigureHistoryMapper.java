@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.ConfigureHistory;
-import com.xjtu.iqa.pojo.ConfigureHistoryExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.ConfigureHistory;
+import com.xjtu.iqa.po.ConfigureHistoryExample;
 
 public interface ConfigureHistoryMapper {
     int deleteByPrimaryKey(String CONFIGUREHISTORYID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.FaqQuestion;
-import com.xjtu.iqa.pojo.FaqQuestionExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.FaqQuestion;
+import com.xjtu.iqa.po.FaqQuestionExample;
 
 public interface FaqQuestionMapper {
     int deleteByPrimaryKey(String FAQQUESTIONID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Server;
-import com.xjtu.iqa.pojo.ServerExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Server;
+import com.xjtu.iqa.po.ServerExample;
 
 public interface ServerMapper {
     int deleteByPrimaryKey(String EQUIPMENTID);

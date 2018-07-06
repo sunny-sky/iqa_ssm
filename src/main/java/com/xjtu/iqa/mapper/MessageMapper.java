@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Message;
-import com.xjtu.iqa.pojo.MessageExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Message;
+import com.xjtu.iqa.po.MessageExample;
 
 public interface MessageMapper {
     int deleteByPrimaryKey(String MESSAGEID);

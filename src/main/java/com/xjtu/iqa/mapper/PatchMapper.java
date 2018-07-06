@@ -1,9 +1,10 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Patch;
-import com.xjtu.iqa.pojo.PatchExample;
-import com.xjtu.iqa.pojo.PatchWithBLOBs;
 import java.util.List;
+
+import com.xjtu.iqa.po.Patch;
+import com.xjtu.iqa.po.PatchExample;
+import com.xjtu.iqa.po.PatchWithBLOBs;
 
 public interface PatchMapper {
     int deleteByPrimaryKey(String CONFIGUREID);

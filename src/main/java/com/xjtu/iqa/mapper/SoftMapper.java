@@ -1,9 +1,10 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Soft;
-import com.xjtu.iqa.pojo.SoftExample;
-import com.xjtu.iqa.pojo.SoftWithBLOBs;
 import java.util.List;
+
+import com.xjtu.iqa.po.Soft;
+import com.xjtu.iqa.po.SoftExample;
+import com.xjtu.iqa.po.SoftWithBLOBs;
 
 public interface SoftMapper {
     int deleteByPrimaryKey(String CONFIGUREID);

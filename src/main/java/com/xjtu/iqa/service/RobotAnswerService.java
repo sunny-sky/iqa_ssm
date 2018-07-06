@@ -2,7 +2,7 @@ package com.xjtu.iqa.service;
 
 import java.util.List;
 
-import com.xjtu.iqa.pojo.RobotAnswer;
+import com.xjtu.iqa.po.RobotAnswer;
 
 
 public interface RobotAnswerService {

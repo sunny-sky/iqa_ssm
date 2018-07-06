@@ -2,7 +2,7 @@ package com.xjtu.iqa.service;
 
 import java.util.List;
 
-import com.xjtu.iqa.pojo.FaqQuestion;
+import com.xjtu.iqa.po.FaqQuestion;
 
 public interface FaqQuestionService {
 	

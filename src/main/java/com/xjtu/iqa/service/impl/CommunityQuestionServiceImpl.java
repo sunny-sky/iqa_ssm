@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.iqa.mapper.CommunityQuestionMapper;
-import com.xjtu.iqa.pojo.CommunityQuestion;
-import com.xjtu.iqa.pojo.CommunityQuestionExample;
+import com.xjtu.iqa.po.CommunityQuestion;
+import com.xjtu.iqa.po.CommunityQuestionExample;
 import com.xjtu.iqa.service.CommunityQuestionService;
 
 @Service

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.EquipmentBasicConfigure;
-import com.xjtu.iqa.pojo.EquipmentBasicConfigureExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.EquipmentBasicConfigure;
+import com.xjtu.iqa.po.EquipmentBasicConfigureExample;
 
 public interface EquipmentBasicConfigureMapper {
     int deleteByPrimaryKey(String EQUIPMENTBASICCONFIGUREID);

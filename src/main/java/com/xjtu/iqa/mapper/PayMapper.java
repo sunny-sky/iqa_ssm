@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Pay;
-import com.xjtu.iqa.pojo.PayExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Pay;
+import com.xjtu.iqa.po.PayExample;
 
 public interface PayMapper {
     int deleteByPrimaryKey(String PAYID);

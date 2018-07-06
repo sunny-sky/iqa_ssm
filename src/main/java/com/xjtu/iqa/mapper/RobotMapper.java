@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Robot;
-import com.xjtu.iqa.pojo.RobotExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Robot;
+import com.xjtu.iqa.po.RobotExample;
 
 public interface RobotMapper {
     int deleteByPrimaryKey(String ROBOTID);

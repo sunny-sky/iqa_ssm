@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.MessageHistory;
-import com.xjtu.iqa.pojo.MessageHistoryExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.MessageHistory;
+import com.xjtu.iqa.po.MessageHistoryExample;
 
 public interface MessageHistoryMapper {
     int deleteByPrimaryKey(String MESSAGEHISTORYID);

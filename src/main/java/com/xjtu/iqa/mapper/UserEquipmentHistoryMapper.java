@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.UserEquipmentHistory;
-import com.xjtu.iqa.pojo.UserEquipmentHistoryExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.UserEquipmentHistory;
+import com.xjtu.iqa.po.UserEquipmentHistoryExample;
 
 public interface UserEquipmentHistoryMapper {
     int deleteByPrimaryKey(String USEREQUIPMENTHISTORYID);

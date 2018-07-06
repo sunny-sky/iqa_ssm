@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Driver;
-import com.xjtu.iqa.pojo.DriverExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Driver;
+import com.xjtu.iqa.po.DriverExample;
 
 public interface DriverMapper {
     int deleteByPrimaryKey(String CONFIGUREID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.TimeStamp;
-import com.xjtu.iqa.pojo.TimeStampExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.TimeStamp;
+import com.xjtu.iqa.po.TimeStampExample;
 
 public interface TimeStampMapper {
     int deleteByPrimaryKey(String TIMEID);

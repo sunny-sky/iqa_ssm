@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.CurrentConfigure;
-import com.xjtu.iqa.pojo.CurrentConfigureExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.CurrentConfigure;
+import com.xjtu.iqa.po.CurrentConfigureExample;
 
 public interface CurrentConfigureMapper {
     int deleteByPrimaryKey(String CURRENTCONFIGUREID);

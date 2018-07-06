@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.It;
-import com.xjtu.iqa.pojo.ItExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.It;
+import com.xjtu.iqa.po.ItExample;
 
 public interface ItMapper {
     int deleteByPrimaryKey(String USERID);

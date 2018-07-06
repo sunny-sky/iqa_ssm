@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.User;
-import com.xjtu.iqa.pojo.UserExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.User;
+import com.xjtu.iqa.po.UserExample;
 
 public interface UserMapper {
     int deleteByPrimaryKey(String USERID);

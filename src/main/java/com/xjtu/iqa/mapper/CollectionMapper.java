@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Collection;
-import com.xjtu.iqa.pojo.CollectionExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Collection;
+import com.xjtu.iqa.po.CollectionExample;
 
 public interface CollectionMapper {
     int deleteByPrimaryKey(String COLLECTIONID);

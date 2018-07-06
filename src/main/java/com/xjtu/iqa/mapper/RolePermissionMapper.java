@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.RolePermission;
-import com.xjtu.iqa.pojo.RolePermissionExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.RolePermission;
+import com.xjtu.iqa.po.RolePermissionExample;
 
 public interface RolePermissionMapper {
     int deleteByPrimaryKey(String ROLEPERMISSIONID);

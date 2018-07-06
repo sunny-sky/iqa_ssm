@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Permission;
-import com.xjtu.iqa.pojo.PermissionExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Permission;
+import com.xjtu.iqa.po.PermissionExample;
 
 public interface PermissionMapper {
     int deleteByPrimaryKey(String PERMISSIONID);

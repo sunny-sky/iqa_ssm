@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.RobotAnswer;
-import com.xjtu.iqa.pojo.RobotAnswerExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.RobotAnswer;
+import com.xjtu.iqa.po.RobotAnswerExample;
 
 public interface RobotAnswerMapper {
     int deleteByPrimaryKey(String ROBOTANSWERID);

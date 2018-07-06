@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Role;
-import com.xjtu.iqa.pojo.RoleExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Role;
+import com.xjtu.iqa.po.RoleExample;
 
 public interface RoleMapper {
     int deleteByPrimaryKey(String ROLEID);

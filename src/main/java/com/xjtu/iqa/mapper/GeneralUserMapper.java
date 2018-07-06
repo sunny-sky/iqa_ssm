@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.GeneralUser;
-import com.xjtu.iqa.pojo.GeneralUserExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.GeneralUser;
+import com.xjtu.iqa.po.GeneralUserExample;
 
 public interface GeneralUserMapper {
     int deleteByPrimaryKey(String USERID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Log;
-import com.xjtu.iqa.pojo.LogExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Log;
+import com.xjtu.iqa.po.LogExample;
 
 public interface LogMapper {
     int deleteByPrimaryKey(String LOGID);

@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Department;
-import com.xjtu.iqa.pojo.DepartmentExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Department;
+import com.xjtu.iqa.po.DepartmentExample;
 
 public interface DepartmentMapper {
     int deleteByPrimaryKey(String DEPARTMENTID);

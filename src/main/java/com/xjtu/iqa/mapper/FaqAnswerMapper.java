@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.FaqAnswer;
-import com.xjtu.iqa.pojo.FaqAnswerExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.FaqAnswer;
+import com.xjtu.iqa.po.FaqAnswerExample;
 
 public interface FaqAnswerMapper {
     int deleteByPrimaryKey(String FAQANSWERID);

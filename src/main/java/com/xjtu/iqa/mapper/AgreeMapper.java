@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.Agree;
-import com.xjtu.iqa.pojo.AgreeExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.Agree;
+import com.xjtu.iqa.po.AgreeExample;
 
 public interface AgreeMapper {
     int deleteByPrimaryKey(String AGREEID);

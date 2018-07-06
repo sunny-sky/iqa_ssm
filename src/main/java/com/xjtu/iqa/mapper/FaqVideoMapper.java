@@ -1,8 +1,9 @@
 package com.xjtu.iqa.mapper;
 
-import com.xjtu.iqa.pojo.FaqVideo;
-import com.xjtu.iqa.pojo.FaqVideoExample;
 import java.util.List;
+
+import com.xjtu.iqa.po.FaqVideo;
+import com.xjtu.iqa.po.FaqVideoExample;
 
 public interface FaqVideoMapper {
     int deleteByPrimaryKey(String FAQVIDEOID);

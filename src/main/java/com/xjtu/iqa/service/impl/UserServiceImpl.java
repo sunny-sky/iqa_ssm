@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.iqa.mapper.UserMapper;
-import com.xjtu.iqa.pojo.User;
-import com.xjtu.iqa.pojo.UserExample;
+import com.xjtu.iqa.po.User;
+import com.xjtu.iqa.po.UserExample;
 import com.xjtu.iqa.service.UserService;
 
 @Service
