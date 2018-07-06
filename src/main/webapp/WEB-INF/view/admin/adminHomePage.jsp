@@ -62,7 +62,7 @@
                         <div class="col-xs-6">
                             <div class="panel padder-v item bg-primary">
                                 <div class="h1 text-fff font-thin h1">
-                                <a href="${basePath}/faqPage.html">${ pendCounts}</a>
+                                <a href="${basePath}/faqPage.html">${ faqPendingCounts}</a>
                                 </div>
                                 <span class="text-muted text-xs">待审核FAQ</span>
                                 <div class="top text-right w-full">
@@ -73,7 +73,7 @@
                         <div class="col-xs-6">
                             <div class="panel padder-v item">
                                 <div class="font-thin h1">
-                                <a href="${basePath}/userPage.html">${pendingAuditCounts }</a>
+                                <a href="${basePath}/userPage.html">${userPendingCounts }</a>
                                 </div>
                                 <span class="text-muted text-xs">待审核用户</span>
                                 <div class="top text-right w-full">

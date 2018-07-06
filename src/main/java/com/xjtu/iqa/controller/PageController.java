@@ -12,8 +12,5 @@ public class PageController {
         return "admin/adminPage";
     }
 	
-	@RequestMapping("adminHomePage")
-    public String adminHomePage() {
-        return "admin/adminHomePage";
-    }
+	
 }

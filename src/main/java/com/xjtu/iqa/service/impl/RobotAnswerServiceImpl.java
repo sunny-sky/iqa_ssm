@@ -43,7 +43,7 @@ public class RobotAnswerServiceImpl implements RobotAnswerService{
     public List<RobotAnswer> Unresolved(){
     	RobotAnswerExample example = new RobotAnswerExample();
     	example.createCriteria().andSATICFACTIONEqualTo(0);
-    	example.setOrderByClause("id asc");
+    	example.setOrderByClause("ROBOTANSWERID desc");
     	List<RobotAnswer> ras =robotAnswerMapper.selectByExample(example);
     	return ras;
     }
