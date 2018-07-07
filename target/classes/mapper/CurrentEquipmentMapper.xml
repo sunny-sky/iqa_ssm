@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.CurrentEquipmentMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.CurrentEquipment">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.CurrentEquipment">
     <id column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
     <result column="MACADDRESS" jdbcType="VARCHAR" property="MACADDRESS" />
     <result column="EQUIPMENTMODEL" jdbcType="VARCHAR" property="EQUIPMENTMODEL" />
@@ -58,7 +58,7 @@
     HARDDRIVERMODEL, STORAGE, NETWORKCARD, MOTHERBOARD, OSNAME, OSTYPE, OSVERSION, OSID, 
     USERID, ISNOTICE, GRAPHICCARD, AUDIOCARD, TIMEREMARKS
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.CurrentEquipmentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.CurrentEquipmentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -83,7 +83,7 @@
     delete from tbl_currentequipment
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.CurrentEquipment">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.CurrentEquipment">
     insert into tbl_currentequipment (EQUIPMENTID, MACADDRESS, EQUIPMENTMODEL, 
       EQUIPMENTTIME, IP, CPU, 
       RAM, HARDDRIVER, HARDDRIVERMODEL, 
@@ -101,7 +101,7 @@
       #{GRAPHICCARD,jdbcType=VARCHAR}, #{AUDIOCARD,jdbcType=VARCHAR}, #{TIMEREMARKS,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.CurrentEquipment">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.CurrentEquipment">
     insert into tbl_currentequipment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="EQUIPMENTID != null">
@@ -234,7 +234,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.CurrentEquipment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.CurrentEquipment">
     update tbl_currentequipment
     <set>
       <if test="MACADDRESS != null">
@@ -300,7 +300,7 @@
     </set>
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.CurrentEquipment">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.CurrentEquipment">
     update tbl_currentequipment
     set MACADDRESS = #{MACADDRESS,jdbcType=VARCHAR},
       EQUIPMENTMODEL = #{EQUIPMENTMODEL,jdbcType=VARCHAR},

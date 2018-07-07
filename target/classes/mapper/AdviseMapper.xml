@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.AdviseMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Advise">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Advise">
     <id column="ADVISEID" jdbcType="VARCHAR" property="ADVISEID" />
     <result column="EMAIL" jdbcType="VARCHAR" property="EMAIL" />
     <result column="NAME" jdbcType="VARCHAR" property="NAME" />
@@ -44,7 +44,7 @@
   <sql id="Base_Column_List">
     ADVISEID, EMAIL, NAME, PHONE, TEXT, ANNEX, USERID, STATES, ADVISETIME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.AdviseExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.AdviseExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -69,7 +69,7 @@
     delete from tbl_advise
     where ADVISEID = #{ADVISEID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Advise">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Advise">
     insert into tbl_advise (ADVISEID, EMAIL, NAME, 
       PHONE, TEXT, ANNEX, 
       USERID, STATES, ADVISETIME
@@ -79,7 +79,7 @@
       #{USERID,jdbcType=VARCHAR}, #{STATES,jdbcType=INTEGER}, #{ADVISETIME,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Advise">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Advise">
     insert into tbl_advise
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ADVISEID != null">
@@ -140,7 +140,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Advise">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Advise">
     update tbl_advise
     <set>
       <if test="EMAIL != null">
@@ -170,7 +170,7 @@
     </set>
     where ADVISEID = #{ADVISEID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Advise">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Advise">
     update tbl_advise
     set EMAIL = #{EMAIL,jdbcType=VARCHAR},
       NAME = #{NAME,jdbcType=VARCHAR},

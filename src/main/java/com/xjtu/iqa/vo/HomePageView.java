@@ -99,5 +99,5 @@ public class HomePageView {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}	
+	}
 }

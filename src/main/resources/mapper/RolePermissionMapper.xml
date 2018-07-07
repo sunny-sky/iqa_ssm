@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.RolePermissionMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.RolePermission">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.RolePermission">
     <id column="ROLEPERMISSIONID" jdbcType="VARCHAR" property="ROLEPERMISSIONID" />
     <result column="ROLEID" jdbcType="VARCHAR" property="ROLEID" />
     <result column="PERMISSIONID" jdbcType="VARCHAR" property="PERMISSIONID" />
@@ -38,7 +38,7 @@
   <sql id="Base_Column_List">
     ROLEPERMISSIONID, ROLEID, PERMISSIONID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.RolePermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.RolePermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -63,13 +63,13 @@
     delete from tbl_role_permission
     where ROLEPERMISSIONID = #{ROLEPERMISSIONID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.RolePermission">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.RolePermission">
     insert into tbl_role_permission (ROLEPERMISSIONID, ROLEID, PERMISSIONID
       )
     values (#{ROLEPERMISSIONID,jdbcType=VARCHAR}, #{ROLEID,jdbcType=VARCHAR}, #{PERMISSIONID,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.RolePermission">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.RolePermission">
     insert into tbl_role_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ROLEPERMISSIONID != null">
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.RolePermission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.RolePermission">
     update tbl_role_permission
     <set>
       <if test="ROLEID != null">
@@ -106,7 +106,7 @@
     </set>
     where ROLEPERMISSIONID = #{ROLEPERMISSIONID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.RolePermission">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.RolePermission">
     update tbl_role_permission
     set ROLEID = #{ROLEID,jdbcType=VARCHAR},
       PERMISSIONID = #{PERMISSIONID,jdbcType=VARCHAR}

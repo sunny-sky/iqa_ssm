@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.GeneralUserMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.GeneralUser">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.GeneralUser">
     <id column="USERID" jdbcType="VARCHAR" property="USERID" />
     <result column="EMPLOYER" jdbcType="VARCHAR" property="EMPLOYER" />
     <result column="DEPARTMENT" jdbcType="VARCHAR" property="DEPARTMENT" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     USERID, EMPLOYER, DEPARTMENT, REALNAME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.GeneralUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.GeneralUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -64,13 +64,13 @@
     delete from tbl_generaluser
     where USERID = #{USERID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.GeneralUser">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.GeneralUser">
     insert into tbl_generaluser (USERID, EMPLOYER, DEPARTMENT, 
       REALNAME)
     values (#{USERID,jdbcType=VARCHAR}, #{EMPLOYER,jdbcType=VARCHAR}, #{DEPARTMENT,jdbcType=VARCHAR}, 
       #{REALNAME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.GeneralUser">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.GeneralUser">
     insert into tbl_generaluser
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="USERID != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.GeneralUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.GeneralUser">
     update tbl_generaluser
     <set>
       <if test="EMPLOYER != null">
@@ -116,7 +116,7 @@
     </set>
     where USERID = #{USERID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.GeneralUser">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.GeneralUser">
     update tbl_generaluser
     set EMPLOYER = #{EMPLOYER,jdbcType=VARCHAR},
       DEPARTMENT = #{DEPARTMENT,jdbcType=VARCHAR},

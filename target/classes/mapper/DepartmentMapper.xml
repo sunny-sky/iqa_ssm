@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.DepartmentMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Department">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Department">
     <id column="DEPARTMENTID" jdbcType="VARCHAR" property="DEPARTMENTID" />
     <result column="DEPARTMENTNAME" jdbcType="VARCHAR" property="DEPARTMENTNAME" />
   </resultMap>
@@ -37,7 +37,7 @@
   <sql id="Base_Column_List">
     DEPARTMENTID, DEPARTMENTNAME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.DepartmentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.DepartmentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -62,11 +62,11 @@
     delete from tbl_department
     where DEPARTMENTID = #{DEPARTMENTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Department">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Department">
     insert into tbl_department (DEPARTMENTID, DEPARTMENTNAME)
     values (#{DEPARTMENTID,jdbcType=VARCHAR}, #{DEPARTMENTNAME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Department">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Department">
     insert into tbl_department
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="DEPARTMENTID != null">
@@ -85,7 +85,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Department">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Department">
     update tbl_department
     <set>
       <if test="DEPARTMENTNAME != null">
@@ -94,7 +94,7 @@
     </set>
     where DEPARTMENTID = #{DEPARTMENTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Department">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Department">
     update tbl_department
     set DEPARTMENTNAME = #{DEPARTMENTNAME,jdbcType=VARCHAR}
     where DEPARTMENTID = #{DEPARTMENTID,jdbcType=VARCHAR}

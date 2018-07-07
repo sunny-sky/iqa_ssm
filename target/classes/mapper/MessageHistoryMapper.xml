@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.MessageHistoryMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.MessageHistory">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.MessageHistory">
     <id column="MESSAGEHISTORYID" jdbcType="VARCHAR" property="MESSAGEHISTORYID" />
     <result column="POSTUSERID" jdbcType="VARCHAR" property="POSTUSERID" />
     <result column="GETUSERID" jdbcType="VARCHAR" property="GETUSERID" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     MESSAGEHISTORYID, POSTUSERID, GETUSERID, TIMEMARK
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.MessageHistoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.MessageHistoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -64,13 +64,13 @@
     delete from tbl_messagehistory
     where MESSAGEHISTORYID = #{MESSAGEHISTORYID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.MessageHistory">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.MessageHistory">
     insert into tbl_messagehistory (MESSAGEHISTORYID, POSTUSERID, GETUSERID, 
       TIMEMARK)
     values (#{MESSAGEHISTORYID,jdbcType=VARCHAR}, #{POSTUSERID,jdbcType=VARCHAR}, #{GETUSERID,jdbcType=VARCHAR}, 
       #{TIMEMARK,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.MessageHistory">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.MessageHistory">
     insert into tbl_messagehistory
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="MESSAGEHISTORYID != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.MessageHistory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.MessageHistory">
     update tbl_messagehistory
     <set>
       <if test="POSTUSERID != null">
@@ -116,7 +116,7 @@
     </set>
     where MESSAGEHISTORYID = #{MESSAGEHISTORYID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.MessageHistory">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.MessageHistory">
     update tbl_messagehistory
     set POSTUSERID = #{POSTUSERID,jdbcType=VARCHAR},
       GETUSERID = #{GETUSERID,jdbcType=VARCHAR},

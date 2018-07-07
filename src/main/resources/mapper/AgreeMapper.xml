@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.AgreeMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Agree">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Agree">
     <id column="AGREEID" jdbcType="VARCHAR" property="AGREEID" />
     <result column="COMMUNITYANSWERID" jdbcType="VARCHAR" property="COMMUNITYANSWERID" />
     <result column="USERID" jdbcType="VARCHAR" property="USERID" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     AGREEID, COMMUNITYANSWERID, USERID, TOUSERID, TIME, ISNOTICE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.AgreeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.AgreeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_agree
     where AGREEID = #{AGREEID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Agree">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Agree">
     insert into tbl_agree (AGREEID, COMMUNITYANSWERID, USERID, 
       TOUSERID, TIME, ISNOTICE
       )
@@ -74,7 +74,7 @@
       #{TOUSERID,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR}, #{ISNOTICE,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Agree">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Agree">
     insert into tbl_agree
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="AGREEID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Agree">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Agree">
     update tbl_agree
     <set>
       <if test="COMMUNITYANSWERID != null">
@@ -138,7 +138,7 @@
     </set>
     where AGREEID = #{AGREEID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Agree">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Agree">
     update tbl_agree
     set COMMUNITYANSWERID = #{COMMUNITYANSWERID,jdbcType=VARCHAR},
       USERID = #{USERID,jdbcType=VARCHAR},

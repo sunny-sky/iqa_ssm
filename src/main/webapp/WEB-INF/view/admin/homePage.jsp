@@ -1,5 +1,10 @@
-<%@ page pageEncoding="UTF-8" %>
-<!-- <#assign base=request.contextPath /> -->
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+   String path = request.getContextPath();
+   String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -62,7 +67,7 @@
                         <div class="col-xs-6">
                             <div class="panel padder-v item bg-primary">
                                 <div class="h1 text-fff font-thin h1">
-                                <a href="${basePath}/faqPage.html">${ faqPendingCounts}</a>
+                                <a href="${basePath}/faqPage.html">${pendCounts}</a>
                                 </div>
                                 <span class="text-muted text-xs">待审核FAQ</span>
                                 <div class="top text-right w-full">
@@ -73,7 +78,7 @@
                         <div class="col-xs-6">
                             <div class="panel padder-v item">
                                 <div class="font-thin h1">
-                                <a href="${basePath}/userPage.html">${userPendingCounts }</a>
+                                <a href="${basePath}/userPage.html">${pendingAuditCounts }</a>
                                 </div>
                                 <span class="text-muted text-xs">待审核用户</span>
                                 <div class="top text-right w-full">
@@ -181,8 +186,15 @@
                 </div>
                 <div class="ibox-content">
                     <ul class="todo-list m-t small-list ui-sortable">
-                        
-                        <#assign n = lists?size />
+                        <c:forEach items="${lists}" var="list">
+                        	<li>
+	                            <a href="${basePath}/showUnResolvedEvent.html?q=${list.userQuestionId}" class="check-link"><i class="fa fa-square-o"></i> </a>
+	                            <span >${list.how}</span>
+	                            <small class="label label-primary"><i class="fa fa-clock-o"></i> ${list.time}</small>
+	                        </li>
+	                        
+                        </c:forEach>
+                        <%-- <#assign n = lists?size />
 						<#if n gt 20>
 						<#assign n =20 />
 						</#if>
@@ -219,7 +231,7 @@
                         
                          </#if>
                         </#list>
-                        </#if>
+                        </#if> --%>
                          
 
                     </ul>

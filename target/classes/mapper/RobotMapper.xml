@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.RobotMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Robot">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Robot">
     <id column="ROBOTID" jdbcType="VARCHAR" property="ROBOTID" />
     <result column="ROBOTNAME" jdbcType="VARCHAR" property="ROBOTNAME" />
     <result column="ROBOTIMAGE" jdbcType="VARCHAR" property="ROBOTIMAGE" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     ROBOTID, ROBOTNAME, ROBOTIMAGE, ROBOTINTRODUCTION, ROBOTWELCOME, ROBOTNOKNOW
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.RobotExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.RobotExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_robot
     where ROBOTID = #{ROBOTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Robot">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Robot">
     insert into tbl_robot (ROBOTID, ROBOTNAME, ROBOTIMAGE, 
       ROBOTINTRODUCTION, ROBOTWELCOME, ROBOTNOKNOW
       )
@@ -74,7 +74,7 @@
       #{ROBOTINTRODUCTION,jdbcType=VARCHAR}, #{ROBOTWELCOME,jdbcType=VARCHAR}, #{ROBOTNOKNOW,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Robot">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Robot">
     insert into tbl_robot
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ROBOTID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Robot">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Robot">
     update tbl_robot
     <set>
       <if test="ROBOTNAME != null">
@@ -138,7 +138,7 @@
     </set>
     where ROBOTID = #{ROBOTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Robot">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Robot">
     update tbl_robot
     set ROBOTNAME = #{ROBOTNAME,jdbcType=VARCHAR},
       ROBOTIMAGE = #{ROBOTIMAGE,jdbcType=VARCHAR},

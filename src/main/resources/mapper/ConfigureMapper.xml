@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.ConfigureMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Configure">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Configure">
     <id column="CONFIGUREID" jdbcType="VARCHAR" property="CONFIGUREID" />
     <result column="CONFIGURETYPE" jdbcType="VARCHAR" property="CONFIGURETYPE" />
     <result column="CONFIGURENAME" jdbcType="VARCHAR" property="CONFIGURENAME" />
@@ -46,7 +46,7 @@
     CONFIGUREID, CONFIGURETYPE, CONFIGURENAME, FILESIZE, URL, DOWNLOADTIMES, PRODUCER, 
     CONFIGURETIME, ISCONFIGURE, RENAME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.ConfigureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.ConfigureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -71,7 +71,7 @@
     delete from tbl_configure
     where CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Configure">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Configure">
     insert into tbl_configure (CONFIGUREID, CONFIGURETYPE, CONFIGURENAME, 
       FILESIZE, URL, DOWNLOADTIMES, 
       PRODUCER, CONFIGURETIME, ISCONFIGURE, 
@@ -81,7 +81,7 @@
       #{PRODUCER,jdbcType=VARCHAR}, #{CONFIGURETIME,jdbcType=VARCHAR}, #{ISCONFIGURE,jdbcType=INTEGER}, 
       #{RENAME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Configure">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Configure">
     insert into tbl_configure
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="CONFIGUREID != null">
@@ -148,7 +148,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Configure">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Configure">
     update tbl_configure
     <set>
       <if test="CONFIGURETYPE != null">
@@ -181,7 +181,7 @@
     </set>
     where CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Configure">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Configure">
     update tbl_configure
     set CONFIGURETYPE = #{CONFIGURETYPE,jdbcType=VARCHAR},
       CONFIGURENAME = #{CONFIGURENAME,jdbcType=VARCHAR},

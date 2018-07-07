@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.UserEquipmentHistoryMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.UserEquipmentHistory">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.UserEquipmentHistory">
     <id column="USEREQUIPMENTHISTORYID" jdbcType="VARCHAR" property="USEREQUIPMENTHISTORYID" />
     <result column="USERID" jdbcType="VARCHAR" property="USERID" />
     <result column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
@@ -40,7 +40,7 @@
   <sql id="Base_Column_List">
     USEREQUIPMENTHISTORYID, USERID, EQUIPMENTID, ALLOCATIONSTARTTIME, ALLOCATIONENDTIME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.UserEquipmentHistoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.UserEquipmentHistoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -65,13 +65,13 @@
     delete from tbl_user_equipment_history
     where USEREQUIPMENTHISTORYID = #{USEREQUIPMENTHISTORYID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.UserEquipmentHistory">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.UserEquipmentHistory">
     insert into tbl_user_equipment_history (USEREQUIPMENTHISTORYID, USERID, EQUIPMENTID, 
       ALLOCATIONSTARTTIME, ALLOCATIONENDTIME)
     values (#{USEREQUIPMENTHISTORYID,jdbcType=VARCHAR}, #{USERID,jdbcType=VARCHAR}, #{EQUIPMENTID,jdbcType=VARCHAR}, 
       #{ALLOCATIONSTARTTIME,jdbcType=VARCHAR}, #{ALLOCATIONENDTIME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.UserEquipmentHistory">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.UserEquipmentHistory">
     insert into tbl_user_equipment_history
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="USEREQUIPMENTHISTORYID != null">
@@ -108,7 +108,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.UserEquipmentHistory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.UserEquipmentHistory">
     update tbl_user_equipment_history
     <set>
       <if test="USERID != null">
@@ -126,7 +126,7 @@
     </set>
     where USEREQUIPMENTHISTORYID = #{USEREQUIPMENTHISTORYID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.UserEquipmentHistory">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.UserEquipmentHistory">
     update tbl_user_equipment_history
     set USERID = #{USERID,jdbcType=VARCHAR},
       EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR},

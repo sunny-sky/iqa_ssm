@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.RoleMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Role">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Role">
     <id column="ROLEID" jdbcType="VARCHAR" property="ROLEID" />
     <result column="ROLENAME" jdbcType="VARCHAR" property="ROLENAME" />
   </resultMap>
@@ -37,7 +37,7 @@
   <sql id="Base_Column_List">
     ROLEID, ROLENAME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.RoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.RoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -62,11 +62,11 @@
     delete from tbl_role
     where ROLEID = #{ROLEID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Role">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Role">
     insert into tbl_role (ROLEID, ROLENAME)
     values (#{ROLEID,jdbcType=VARCHAR}, #{ROLENAME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Role">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Role">
     insert into tbl_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ROLEID != null">
@@ -85,7 +85,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Role">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Role">
     update tbl_role
     <set>
       <if test="ROLENAME != null">
@@ -94,7 +94,7 @@
     </set>
     where ROLEID = #{ROLEID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Role">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Role">
     update tbl_role
     set ROLENAME = #{ROLENAME,jdbcType=VARCHAR}
     where ROLEID = #{ROLEID,jdbcType=VARCHAR}

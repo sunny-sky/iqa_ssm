@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.SoftMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Soft">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Soft">
     <id column="CONFIGUREID" jdbcType="VARCHAR" property="CONFIGUREID" />
     <result column="SOFTID" jdbcType="VARCHAR" property="SOFTID" />
     <result column="SCORE" jdbcType="VARCHAR" property="SCORE" />
@@ -13,7 +13,7 @@
     <result column="OS" jdbcType="VARCHAR" property="OS" />
     <result column="WEBSITE" jdbcType="VARCHAR" property="WEBSITE" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.pojo.SoftWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.po.SoftWithBLOBs">
     <result column="INTRODUCTION" jdbcType="LONGVARCHAR" property="INTRODUCTION" />
     <result column="DESCRIPTION" jdbcType="LONGVARCHAR" property="DESCRIPTION" />
     <result column="NEWVERSIONINTRODUCTION" jdbcType="LONGVARCHAR" property="NEWVERSIONINTRODUCTION" />
@@ -54,7 +54,7 @@
   <sql id="Blob_Column_List">
     INTRODUCTION, DESCRIPTION, NEWVERSIONINTRODUCTION, NEWVERSIONDESCRIPTION
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.pojo.SoftExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.po.SoftExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -71,7 +71,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.SoftExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.SoftExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,7 +98,7 @@
     delete from tbl_soft
     where CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.SoftWithBLOBs">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.SoftWithBLOBs">
     insert into tbl_soft (CONFIGUREID, SOFTID, SCORE, 
       LOGO, VERSIONTYPE, VERSION, 
       SOFTTYPE, SPAREURL, OS, 
@@ -112,7 +112,7 @@
       #{NEWVERSIONINTRODUCTION,jdbcType=LONGVARCHAR}, #{NEWVERSIONDESCRIPTION,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.SoftWithBLOBs">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.SoftWithBLOBs">
     insert into tbl_soft
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="CONFIGUREID != null">
@@ -203,7 +203,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.SoftWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.SoftWithBLOBs">
     update tbl_soft
     <set>
       <if test="SOFTID != null">
@@ -248,7 +248,7 @@
     </set>
     where CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.pojo.SoftWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.po.SoftWithBLOBs">
     update tbl_soft
     set SOFTID = #{SOFTID,jdbcType=VARCHAR},
       SCORE = #{SCORE,jdbcType=VARCHAR},
@@ -265,7 +265,7 @@
       NEWVERSIONDESCRIPTION = #{NEWVERSIONDESCRIPTION,jdbcType=LONGVARCHAR}
     where CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Soft">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Soft">
     update tbl_soft
     set SOFTID = #{SOFTID,jdbcType=VARCHAR},
       SCORE = #{SCORE,jdbcType=VARCHAR},

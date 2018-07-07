@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.PayMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Pay">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Pay">
     <id column="PAYID" jdbcType="VARCHAR" property="PAYID" />
     <result column="PAYUSERID" jdbcType="VARCHAR" property="PAYUSERID" />
     <result column="BEPAYUSERID" jdbcType="VARCHAR" property="BEPAYUSERID" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     PAYID, PAYUSERID, BEPAYUSERID, TIME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.PayExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.PayExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -64,13 +64,13 @@
     delete from tbl_pay
     where PAYID = #{PAYID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Pay">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Pay">
     insert into tbl_pay (PAYID, PAYUSERID, BEPAYUSERID, 
       TIME)
     values (#{PAYID,jdbcType=VARCHAR}, #{PAYUSERID,jdbcType=VARCHAR}, #{BEPAYUSERID,jdbcType=VARCHAR}, 
       #{TIME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Pay">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Pay">
     insert into tbl_pay
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="PAYID != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Pay">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Pay">
     update tbl_pay
     <set>
       <if test="PAYUSERID != null">
@@ -116,7 +116,7 @@
     </set>
     where PAYID = #{PAYID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Pay">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Pay">
     update tbl_pay
     set PAYUSERID = #{PAYUSERID,jdbcType=VARCHAR},
       BEPAYUSERID = #{BEPAYUSERID,jdbcType=VARCHAR},

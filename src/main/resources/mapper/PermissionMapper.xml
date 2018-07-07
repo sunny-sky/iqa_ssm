@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.PermissionMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Permission">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Permission">
     <id column="PERMISSIONID" jdbcType="VARCHAR" property="PERMISSIONID" />
     <result column="PERMISSIONPHYSICALNAME" jdbcType="VARCHAR" property="PERMISSIONPHYSICALNAME" />
     <result column="PERMISSIONLOGICNAME" jdbcType="VARCHAR" property="PERMISSIONLOGICNAME" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     PERMISSIONID, PERMISSIONPHYSICALNAME, PERMISSIONLOGICNAME, TIME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.PermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.PermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -64,13 +64,13 @@
     delete from tbl_permission
     where PERMISSIONID = #{PERMISSIONID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Permission">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Permission">
     insert into tbl_permission (PERMISSIONID, PERMISSIONPHYSICALNAME, 
       PERMISSIONLOGICNAME, TIME)
     values (#{PERMISSIONID,jdbcType=VARCHAR}, #{PERMISSIONPHYSICALNAME,jdbcType=VARCHAR}, 
       #{PERMISSIONLOGICNAME,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Permission">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Permission">
     insert into tbl_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="PERMISSIONID != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Permission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Permission">
     update tbl_permission
     <set>
       <if test="PERMISSIONPHYSICALNAME != null">
@@ -116,7 +116,7 @@
     </set>
     where PERMISSIONID = #{PERMISSIONID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Permission">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Permission">
     update tbl_permission
     set PERMISSIONPHYSICALNAME = #{PERMISSIONPHYSICALNAME,jdbcType=VARCHAR},
       PERMISSIONLOGICNAME = #{PERMISSIONLOGICNAME,jdbcType=VARCHAR},

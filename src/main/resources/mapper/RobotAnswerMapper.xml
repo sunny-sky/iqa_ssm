@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.RobotAnswerMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.RobotAnswer">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.RobotAnswer">
     <id column="ROBOTANSWERID" jdbcType="VARCHAR" property="ROBOTANSWERID" />
     <result column="USERQUESTIONID" jdbcType="VARCHAR" property="USERQUESTIONID" />
     <result column="FAQANSWERID" jdbcType="VARCHAR" property="FAQANSWERID" />
@@ -40,7 +40,7 @@
   <sql id="Base_Column_List">
     ROBOTANSWERID, USERQUESTIONID, FAQANSWERID, SATICFACTION, QUESTIONSTATE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.RobotAnswerExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.RobotAnswerExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -65,13 +65,13 @@
     delete from tbl_robotanswer
     where ROBOTANSWERID = #{ROBOTANSWERID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.RobotAnswer">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.RobotAnswer">
     insert into tbl_robotanswer (ROBOTANSWERID, USERQUESTIONID, FAQANSWERID, 
       SATICFACTION, QUESTIONSTATE)
     values (#{ROBOTANSWERID,jdbcType=VARCHAR}, #{USERQUESTIONID,jdbcType=VARCHAR}, #{FAQANSWERID,jdbcType=VARCHAR}, 
       #{SATICFACTION,jdbcType=INTEGER}, #{QUESTIONSTATE,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.RobotAnswer">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.RobotAnswer">
     insert into tbl_robotanswer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ROBOTANSWERID != null">
@@ -108,7 +108,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.RobotAnswer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.RobotAnswer">
     update tbl_robotanswer
     <set>
       <if test="USERQUESTIONID != null">
@@ -126,7 +126,7 @@
     </set>
     where ROBOTANSWERID = #{ROBOTANSWERID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.RobotAnswer">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.RobotAnswer">
     update tbl_robotanswer
     set USERQUESTIONID = #{USERQUESTIONID,jdbcType=VARCHAR},
       FAQANSWERID = #{FAQANSWERID,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.TimeStampMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.TimeStamp">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.TimeStamp">
     <id column="TIMEID" jdbcType="VARCHAR" property="TIMEID" />
     <result column="NAME" jdbcType="VARCHAR" property="NAME" />
     <result column="TIME" jdbcType="VARCHAR" property="TIME" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     TIMEID, NAME, TIME, BEGINTIME
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.TimeStampExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.TimeStampExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -64,13 +64,13 @@
     delete from tbl_timestamp
     where TIMEID = #{TIMEID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.TimeStamp">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.TimeStamp">
     insert into tbl_timestamp (TIMEID, NAME, TIME, 
       BEGINTIME)
     values (#{TIMEID,jdbcType=VARCHAR}, #{NAME,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR}, 
       #{BEGINTIME,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.TimeStamp">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.TimeStamp">
     insert into tbl_timestamp
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="TIMEID != null">
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.TimeStamp">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.TimeStamp">
     update tbl_timestamp
     <set>
       <if test="NAME != null">
@@ -116,7 +116,7 @@
     </set>
     where TIMEID = #{TIMEID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.TimeStamp">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.TimeStamp">
     update tbl_timestamp
     set NAME = #{NAME,jdbcType=VARCHAR},
       TIME = #{TIME,jdbcType=VARCHAR},

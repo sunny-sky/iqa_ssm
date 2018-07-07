@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.MessageMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Message">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Message">
     <id column="MESSAGEID" jdbcType="VARCHAR" property="MESSAGEID" />
     <result column="MESSAGECONTENT" jdbcType="VARCHAR" property="MESSAGECONTENT" />
     <result column="MESSAGETIME" jdbcType="VARCHAR" property="MESSAGETIME" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     MESSAGEID, MESSAGECONTENT, MESSAGETIME, MESSAGESTATE, POSTUSERID, GETUSERID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.MessageExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.MessageExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_message
     where MESSAGEID = #{MESSAGEID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Message">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Message">
     insert into tbl_message (MESSAGEID, MESSAGECONTENT, MESSAGETIME, 
       MESSAGESTATE, POSTUSERID, GETUSERID
       )
@@ -74,7 +74,7 @@
       #{MESSAGESTATE,jdbcType=INTEGER}, #{POSTUSERID,jdbcType=VARCHAR}, #{GETUSERID,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Message">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Message">
     insert into tbl_message
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="MESSAGEID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Message">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Message">
     update tbl_message
     <set>
       <if test="MESSAGECONTENT != null">
@@ -138,7 +138,7 @@
     </set>
     where MESSAGEID = #{MESSAGEID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Message">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Message">
     update tbl_message
     set MESSAGECONTENT = #{MESSAGECONTENT,jdbcType=VARCHAR},
       MESSAGETIME = #{MESSAGETIME,jdbcType=VARCHAR},

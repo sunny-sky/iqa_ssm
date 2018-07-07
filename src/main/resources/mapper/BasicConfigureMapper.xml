@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.BasicConfigureMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.BasicConfigure">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.BasicConfigure">
     <id column="BASICCONFIGURE" jdbcType="VARCHAR" property="BASICCONFIGURE" />
     <result column="CONFIGUREID" jdbcType="VARCHAR" property="CONFIGUREID" />
     <result column="DEPARTMENTID" jdbcType="VARCHAR" property="DEPARTMENTID" />
@@ -38,7 +38,7 @@
   <sql id="Base_Column_List">
     BASICCONFIGURE, CONFIGUREID, DEPARTMENTID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.BasicConfigureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.BasicConfigureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -63,13 +63,13 @@
     delete from tbl_basicconfigure
     where BASICCONFIGURE = #{BASICCONFIGURE,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.BasicConfigure">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.BasicConfigure">
     insert into tbl_basicconfigure (BASICCONFIGURE, CONFIGUREID, DEPARTMENTID
       )
     values (#{BASICCONFIGURE,jdbcType=VARCHAR}, #{CONFIGUREID,jdbcType=VARCHAR}, #{DEPARTMENTID,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.BasicConfigure">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.BasicConfigure">
     insert into tbl_basicconfigure
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="BASICCONFIGURE != null">
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.BasicConfigure">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.BasicConfigure">
     update tbl_basicconfigure
     <set>
       <if test="CONFIGUREID != null">
@@ -106,7 +106,7 @@
     </set>
     where BASICCONFIGURE = #{BASICCONFIGURE,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.BasicConfigure">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.BasicConfigure">
     update tbl_basicconfigure
     set CONFIGUREID = #{CONFIGUREID,jdbcType=VARCHAR},
       DEPARTMENTID = #{DEPARTMENTID,jdbcType=VARCHAR}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.CommentMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Comment">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Comment">
     <id column="COMMENTID" jdbcType="VARCHAR" property="COMMENTID" />
     <result column="FAQQUESTIONID" jdbcType="VARCHAR" property="FAQQUESTIONID" />
     <result column="COMMUNITYQUESTIONID" jdbcType="VARCHAR" property="COMMUNITYQUESTIONID" />
@@ -45,7 +45,7 @@
     COMMENTID, FAQQUESTIONID, COMMUNITYQUESTIONID, USERID, COMMENTCONTENT, COMMENTTIME, 
     COMMENTPARENTID, TOUSERID, ISNOTICE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.CommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -70,7 +70,7 @@
     delete from tbl_comment
     where COMMENTID = #{COMMENTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Comment">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Comment">
     insert into tbl_comment (COMMENTID, FAQQUESTIONID, COMMUNITYQUESTIONID, 
       USERID, COMMENTCONTENT, COMMENTTIME, 
       COMMENTPARENTID, TOUSERID, ISNOTICE
@@ -80,7 +80,7 @@
       #{COMMENTPARENTID,jdbcType=VARCHAR}, #{TOUSERID,jdbcType=VARCHAR}, #{ISNOTICE,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Comment">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Comment">
     insert into tbl_comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="COMMENTID != null">
@@ -141,7 +141,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Comment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Comment">
     update tbl_comment
     <set>
       <if test="FAQQUESTIONID != null">
@@ -171,7 +171,7 @@
     </set>
     where COMMENTID = #{COMMENTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Comment">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Comment">
     update tbl_comment
     set FAQQUESTIONID = #{FAQQUESTIONID,jdbcType=VARCHAR},
       COMMUNITYQUESTIONID = #{COMMUNITYQUESTIONID,jdbcType=VARCHAR},

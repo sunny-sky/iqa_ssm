@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.LogMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Log">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Log">
     <id column="LOGID" jdbcType="VARCHAR" property="LOGID" />
     <result column="USERID" jdbcType="VARCHAR" property="USERID" />
     <result column="LOGMETHOD" jdbcType="VARCHAR" property="LOGMETHOD" />
@@ -42,7 +42,7 @@
   <sql id="Base_Column_List">
     LOGID, USERID, LOGMETHOD, LOGTIME, OPERATION, URL, IP
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.LogExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.LogExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -67,7 +67,7 @@
     delete from tbl_log
     where LOGID = #{LOGID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Log">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Log">
     insert into tbl_log (LOGID, USERID, LOGMETHOD, 
       LOGTIME, OPERATION, URL, 
       IP)
@@ -75,7 +75,7 @@
       #{LOGTIME,jdbcType=VARCHAR}, #{OPERATION,jdbcType=VARCHAR}, #{URL,jdbcType=VARCHAR}, 
       #{IP,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Log">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Log">
     insert into tbl_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="LOGID != null">
@@ -124,7 +124,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Log">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Log">
     update tbl_log
     <set>
       <if test="USERID != null">
@@ -148,7 +148,7 @@
     </set>
     where LOGID = #{LOGID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Log">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Log">
     update tbl_log
     set USERID = #{USERID,jdbcType=VARCHAR},
       LOGMETHOD = #{LOGMETHOD,jdbcType=VARCHAR},

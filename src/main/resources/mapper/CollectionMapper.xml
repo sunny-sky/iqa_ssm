@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.CollectionMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Collection">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Collection">
     <id column="COLLECTIONID" jdbcType="VARCHAR" property="COLLECTIONID" />
     <result column="COMMUNITYANSWERID" jdbcType="VARCHAR" property="COMMUNITYANSWERID" />
     <result column="FAQQUESTIONID" jdbcType="VARCHAR" property="FAQQUESTIONID" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     COLLECTIONID, COMMUNITYANSWERID, FAQQUESTIONID, USERID, TIME, ISNOTICE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.CollectionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.CollectionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_collection
     where COLLECTIONID = #{COLLECTIONID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Collection">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Collection">
     insert into tbl_collection (COLLECTIONID, COMMUNITYANSWERID, 
       FAQQUESTIONID, USERID, TIME, 
       ISNOTICE)
@@ -74,7 +74,7 @@
       #{FAQQUESTIONID,jdbcType=VARCHAR}, #{USERID,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR}, 
       #{ISNOTICE,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Collection">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Collection">
     insert into tbl_collection
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="COLLECTIONID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Collection">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Collection">
     update tbl_collection
     <set>
       <if test="COMMUNITYANSWERID != null">
@@ -138,7 +138,7 @@
     </set>
     where COLLECTIONID = #{COLLECTIONID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Collection">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Collection">
     update tbl_collection
     set COMMUNITYANSWERID = #{COMMUNITYANSWERID,jdbcType=VARCHAR},
       FAQQUESTIONID = #{FAQQUESTIONID,jdbcType=VARCHAR},

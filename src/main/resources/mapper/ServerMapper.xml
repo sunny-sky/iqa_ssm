@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.ServerMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Server">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Server">
     <id column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
     <result column="OSVERSION" jdbcType="VARCHAR" property="OSVERSION" />
     <result column="COMPUTERNAME" jdbcType="VARCHAR" property="COMPUTERNAME" />
@@ -57,7 +57,7 @@
     IDLERAM, OS_TIME_USERNUM_LOAD, OSLOAD, FIREWALL, ROUTINGTABLE, HASCONTACT, NETWORK, 
     PROCESS, REALTIMEPROCESS, ACTIVEUSER, BIOS, NETWORKCARD
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.ServerExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.ServerExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -82,7 +82,7 @@
     delete from tbl_server
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Server">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Server">
     insert into tbl_server (EQUIPMENTID, OSVERSION, COMPUTERNAME, 
       PCI, USB, PATH, RAM_EXCHANGEAREAUSE, 
       PARTATIONUSE, IDLERAM, OS_TIME_USERNUM_LOAD, 
@@ -98,7 +98,7 @@
       #{REALTIMEPROCESS,jdbcType=VARCHAR}, #{ACTIVEUSER,jdbcType=VARCHAR}, #{BIOS,jdbcType=VARCHAR}, 
       #{NETWORKCARD,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Server">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Server">
     insert into tbl_server
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="EQUIPMENTID != null">
@@ -225,7 +225,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Server">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Server">
     update tbl_server
     <set>
       <if test="OSVERSION != null">
@@ -288,7 +288,7 @@
     </set>
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Server">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Server">
     update tbl_server
     set OSVERSION = #{OSVERSION,jdbcType=VARCHAR},
       COMPUTERNAME = #{COMPUTERNAME,jdbcType=VARCHAR},

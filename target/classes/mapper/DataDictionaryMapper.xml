@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.DataDictionaryMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.DataDictionary">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.DataDictionary">
     <id column="DATADICTIONARYID" jdbcType="VARCHAR" property="DATADICTIONARYID" />
     <result column="DATANAME" jdbcType="VARCHAR" property="DATANAME" />
     <result column="DATAVALUE" jdbcType="VARCHAR" property="DATAVALUE" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     DATADICTIONARYID, DATANAME, DATAVALUE, REMARKS, DATATYPE, DATARANGE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.DataDictionaryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.DataDictionaryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_datadictionary
     where DATADICTIONARYID = #{DATADICTIONARYID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.DataDictionary">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.DataDictionary">
     insert into tbl_datadictionary (DATADICTIONARYID, DATANAME, DATAVALUE, 
       REMARKS, DATATYPE, DATARANGE
       )
@@ -74,7 +74,7 @@
       #{REMARKS,jdbcType=VARCHAR}, #{DATATYPE,jdbcType=INTEGER}, #{DATARANGE,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.DataDictionary">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.DataDictionary">
     insert into tbl_datadictionary
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="DATADICTIONARYID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.DataDictionary">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.DataDictionary">
     update tbl_datadictionary
     <set>
       <if test="DATANAME != null">
@@ -138,7 +138,7 @@
     </set>
     where DATADICTIONARYID = #{DATADICTIONARYID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.DataDictionary">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.DataDictionary">
     update tbl_datadictionary
     set DATANAME = #{DATANAME,jdbcType=VARCHAR},
       DATAVALUE = #{DATAVALUE,jdbcType=VARCHAR},

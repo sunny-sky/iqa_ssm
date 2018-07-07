@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.EquipmentBasicConfigureMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.EquipmentBasicConfigure">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.EquipmentBasicConfigure">
     <id column="EQUIPMENTBASICCONFIGUREID" jdbcType="VARCHAR" property="EQUIPMENTBASICCONFIGUREID" />
     <result column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
     <result column="BASICCONFIGUREID" jdbcType="VARCHAR" property="BASICCONFIGUREID" />
@@ -38,7 +38,7 @@
   <sql id="Base_Column_List">
     EQUIPMENTBASICCONFIGUREID, EQUIPMENTID, BASICCONFIGUREID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.EquipmentBasicConfigureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.EquipmentBasicConfigureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -63,13 +63,13 @@
     delete from tbl_equipment_basicconfigure
     where EQUIPMENTBASICCONFIGUREID = #{EQUIPMENTBASICCONFIGUREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.EquipmentBasicConfigure">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.EquipmentBasicConfigure">
     insert into tbl_equipment_basicconfigure (EQUIPMENTBASICCONFIGUREID, EQUIPMENTID, 
       BASICCONFIGUREID)
     values (#{EQUIPMENTBASICCONFIGUREID,jdbcType=VARCHAR}, #{EQUIPMENTID,jdbcType=VARCHAR}, 
       #{BASICCONFIGUREID,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.EquipmentBasicConfigure">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.EquipmentBasicConfigure">
     insert into tbl_equipment_basicconfigure
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="EQUIPMENTBASICCONFIGUREID != null">
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.EquipmentBasicConfigure">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.EquipmentBasicConfigure">
     update tbl_equipment_basicconfigure
     <set>
       <if test="EQUIPMENTID != null">
@@ -106,7 +106,7 @@
     </set>
     where EQUIPMENTBASICCONFIGUREID = #{EQUIPMENTBASICCONFIGUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.EquipmentBasicConfigure">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.EquipmentBasicConfigure">
     update tbl_equipment_basicconfigure
     set EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR},
       BASICCONFIGUREID = #{BASICCONFIGUREID,jdbcType=VARCHAR}

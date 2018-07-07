@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.ShareMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Share">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Share">
     <id column="SHAREID" jdbcType="VARCHAR" property="SHAREID" />
     <result column="USERID" jdbcType="VARCHAR" property="USERID" />
     <result column="TIME" jdbcType="VARCHAR" property="TIME" />
@@ -40,7 +40,7 @@
   <sql id="Base_Column_List">
     SHAREID, USERID, TIME, FAQQUESTIONID, COMMUNITYQUESTIONID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.ShareExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.ShareExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -65,13 +65,13 @@
     delete from tbl_share
     where SHAREID = #{SHAREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Share">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Share">
     insert into tbl_share (SHAREID, USERID, TIME, 
       FAQQUESTIONID, COMMUNITYQUESTIONID)
     values (#{SHAREID,jdbcType=VARCHAR}, #{USERID,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR}, 
       #{FAQQUESTIONID,jdbcType=VARCHAR}, #{COMMUNITYQUESTIONID,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Share">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Share">
     insert into tbl_share
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="SHAREID != null">
@@ -108,7 +108,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Share">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Share">
     update tbl_share
     <set>
       <if test="USERID != null">
@@ -126,7 +126,7 @@
     </set>
     where SHAREID = #{SHAREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Share">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Share">
     update tbl_share
     set USERID = #{USERID,jdbcType=VARCHAR},
       TIME = #{TIME,jdbcType=VARCHAR},

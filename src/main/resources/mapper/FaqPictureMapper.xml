@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.FaqPictureMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.FaqPicture">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.FaqPicture">
     <id column="FAQPICTUREID" jdbcType="VARCHAR" property="FAQPICTUREID" />
     <result column="IMGPATH" jdbcType="VARCHAR" property="IMGPATH" />
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="DESCRIPTION" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     FAQPICTUREID, IMGPATH, DESCRIPTION, USERID, TIME, STATE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.FaqPictureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.FaqPictureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from tbl_faqpicture
     where FAQPICTUREID = #{FAQPICTUREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.FaqPicture">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.FaqPicture">
     insert into tbl_faqpicture (FAQPICTUREID, IMGPATH, DESCRIPTION, 
       USERID, TIME, STATE
       )
@@ -74,7 +74,7 @@
       #{USERID,jdbcType=VARCHAR}, #{TIME,jdbcType=VARCHAR}, #{STATE,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.FaqPicture">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.FaqPicture">
     insert into tbl_faqpicture
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="FAQPICTUREID != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.FaqPicture">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.FaqPicture">
     update tbl_faqpicture
     <set>
       <if test="IMGPATH != null">
@@ -138,7 +138,7 @@
     </set>
     where FAQPICTUREID = #{FAQPICTUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.FaqPicture">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.FaqPicture">
     update tbl_faqpicture
     set IMGPATH = #{IMGPATH,jdbcType=VARCHAR},
       DESCRIPTION = #{DESCRIPTION,jdbcType=VARCHAR},

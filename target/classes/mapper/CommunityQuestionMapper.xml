@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.CommunityQuestionMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.CommunityQuestion">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.CommunityQuestion">
     <id column="COMMUNITYQUESTIONID" jdbcType="VARCHAR" property="COMMUNITYQUESTIONID" />
     <result column="TIME" jdbcType="VARCHAR" property="TIME" />
     <result column="TITLE" jdbcType="VARCHAR" property="TITLE" />
@@ -11,7 +11,7 @@
     <result column="QUESTIONSTATE" jdbcType="INTEGER" property="QUESTIONSTATE" />
     <result column="ISANSWER" jdbcType="INTEGER" property="ISANSWER" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.pojo.CommunityQuestion">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.po.CommunityQuestion">
     <result column="CONTENT" jdbcType="LONGVARCHAR" property="CONTENT" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -49,7 +49,7 @@
   <sql id="Blob_Column_List">
     CONTENT
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.pojo.CommunityQuestionExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.po.CommunityQuestionExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.CommunityQuestionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.CommunityQuestionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,7 +93,7 @@
     delete from tbl_communityquestion
     where COMMUNITYQUESTIONID = #{COMMUNITYQUESTIONID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.CommunityQuestion">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.CommunityQuestion">
     insert into tbl_communityquestion (COMMUNITYQUESTIONID, TIME, TITLE, 
       CLASSIFYID, USERID, SCAN, 
       QUESTIONSTATE, ISANSWER, CONTENT
@@ -103,7 +103,7 @@
       #{QUESTIONSTATE,jdbcType=INTEGER}, #{ISANSWER,jdbcType=INTEGER}, #{CONTENT,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.CommunityQuestion">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.CommunityQuestion">
     insert into tbl_communityquestion
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="COMMUNITYQUESTIONID != null">
@@ -164,7 +164,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.CommunityQuestion">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.CommunityQuestion">
     update tbl_communityquestion
     <set>
       <if test="TIME != null">
@@ -194,7 +194,7 @@
     </set>
     where COMMUNITYQUESTIONID = #{COMMUNITYQUESTIONID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.pojo.CommunityQuestion">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.po.CommunityQuestion">
     update tbl_communityquestion
     set TIME = #{TIME,jdbcType=VARCHAR},
       TITLE = #{TITLE,jdbcType=VARCHAR},
@@ -206,7 +206,7 @@
       CONTENT = #{CONTENT,jdbcType=LONGVARCHAR}
     where COMMUNITYQUESTIONID = #{COMMUNITYQUESTIONID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.CommunityQuestion">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.CommunityQuestion">
     update tbl_communityquestion
     set TIME = #{TIME,jdbcType=VARCHAR},
       TITLE = #{TITLE,jdbcType=VARCHAR},
@@ -217,4 +217,88 @@
       ISANSWER = #{ISANSWER,jdbcType=INTEGER}
     where COMMUNITYQUESTIONID = #{COMMUNITYQUESTIONID,jdbcType=VARCHAR}
   </update>
+  
+  <select id="notice_CommunityQuestion_Limit" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+     SELECT * FROM TBL_CommunityQuestion 
+     WHERE USERID=#{0} ORDER BY TIME DESC LIMIT #{1},#{2}
+
+  </select>
+  <select id="notice_CommunityQuestion_Limit_Time" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+     SELECT * FROM TBL_CommunityQuestion 
+     WHERE USERID=#{0} 
+     AND STR_TO_DATE(TIME,'%Y-%m-%d %H:%i')&lt;STR_TO_DATE(#{3},'%Y-%m-%d %H:%i') ORDER BY TIME DESC LIMIT #{1},#{2}
+
+  </select>
+  <select id="question_getCommunity_isanswer" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+     SELECT * FROM TBL_CommunityQuestion  ORDER BY TIME DESC LIMIT #{0},5
+
+  </select>
+  <select id="question_iscurrent" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="String">
+     SELECT  COMMUNITYQUESTIONID FROM TBL_CommunityQuestion WHERE USERID=#{0} AND TITLE=#{1}
+
+  </select>
+  <select id="question_getCommunity" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE CLASSIFYID=#{0} ORDER BY TIME DESC
+
+  </select>
+  <select id="selectQuestionByClassifyId" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE CLASSIFYID=#{0} ORDER BY TIME DESC LIMIT 5
+
+  </select>
+  <select id="questionSizeByClassifyId" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion WHERE CLASSIFYID=#{0}
+
+  </select>
+  <select id="questionSizeByClassifyIdLimit" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion WHERE CLASSIFYID=#{0} AND ISANSWER=#{1}
+
+  </select>
+  <select id="question_getCommunity2" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE CLASSIFYID=#{0} AND ISANSWER=#{1} ORDER BY TIME DESC 
+
+  </select>
+  <select id="question2_getCommunity" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE COMMUNITYQUESTIONID=#{0} 
+
+  </select>
+  <select id="CommunityQuestion" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="String">
+  	SELECT USERID FROM TBL_CommunityQuestion WHERE COMMUNITYQUESTIONID=#{0} 
+
+  </select>
+  <update id="updateBestAnswer" parameterType="com.xjtu.iqa.po.CommunityQuestion">
+  	UPDATE TBL_CommunityQuestion SET ISANSWER=#{1} WHERE COMMUNITYQUESTIONID=#{0}
+
+  </update>
+  <select id="problemInfo" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap" > 
+  	SELECT * FROM TBL_CommunityQuestion WHERE ISANSWER=#{0} AND QUESTIONSTATE = #{1} ORDER BY TIME DESC
+
+  </select>
+  <select id="problemInfo_limit" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE ISANSWER=#{0} AND QUESTIONSTATE = #{1} ORDER BY TIME DESC LIMIT #{2}
+
+  </select>
+  <select id="problemCount" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion WHERE ISANSWER=#{0} AND QUESTIONSTATE = #{1}
+
+  </select>
+  <update id="updateCommunityQuestionState" parameterType="com.xjtu.iqa.po.CommunityQuestion">
+  	UPDATE TBL_CommunityQuestion SET QUESTIONSTATE=#{1} WHERE COMMUNITYQUESTIONID=#{0}
+
+  </update>
+  <select id="question_getCommunity2_isanswer" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE ISANSWER=#{1} ORDER BY TIME DESC LIMIT #{0},5
+
+  </select>
+  <select id="notice_CommunityQuestion" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_CommunityQuestion WHERE USERID=#{0}
+  </select>
+  <select id="problemCount_time" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion WHERE ISANSWER=#{0} AND QUESTIONSTATE = #{1} AND TIME LIKE CONCAT('%',#{2},'%' )
+  </select>
+  <select id="questionSize" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion 
+  </select>
+  <select id="questionSizeLimit" parameterType="com.xjtu.iqa.po.CommunityQuestion" resultType="java.lang.Integer">
+  	SELECT COUNT(1) FROM TBL_CommunityQuestion WHERE  ISANSWER=#{1}
+  </select>
 </mapper>

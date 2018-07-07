@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.ItMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.It">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.It">
     <id column="USERID" jdbcType="VARCHAR" property="USERID" />
     <result column="GOODWORK" jdbcType="VARCHAR" property="GOODWORK" />
     <result column="WORKAGE" jdbcType="VARCHAR" property="WORKAGE" />
@@ -38,7 +38,7 @@
   <sql id="Base_Column_List">
     USERID, GOODWORK, WORKAGE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.ItExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.ItExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -63,13 +63,13 @@
     delete from tbl_it
     where USERID = #{USERID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.It">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.It">
     insert into tbl_it (USERID, GOODWORK, WORKAGE
       )
     values (#{USERID,jdbcType=VARCHAR}, #{GOODWORK,jdbcType=VARCHAR}, #{WORKAGE,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.It">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.It">
     insert into tbl_it
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="USERID != null">
@@ -94,7 +94,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.It">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.It">
     update tbl_it
     <set>
       <if test="GOODWORK != null">
@@ -106,7 +106,7 @@
     </set>
     where USERID = #{USERID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.It">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.It">
     update tbl_it
     set GOODWORK = #{GOODWORK,jdbcType=VARCHAR},
       WORKAGE = #{WORKAGE,jdbcType=VARCHAR}

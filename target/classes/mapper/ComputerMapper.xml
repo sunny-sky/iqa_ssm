@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.ComputerMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.Computer">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.Computer">
     <id column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
     <result column="GRAPHICCARD" jdbcType="VARCHAR" property="GRAPHICCARD" />
     <result column="AUDIOCARD" jdbcType="VARCHAR" property="AUDIOCARD" />
@@ -42,7 +42,7 @@
   <sql id="Base_Column_List">
     EQUIPMENTID, GRAPHICCARD, AUDIOCARD, NETWORKCARD, MOTHERBOARD, OSNAME, OSID
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.ComputerExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.ComputerExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -67,7 +67,7 @@
     delete from tbl_computer
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.Computer">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.Computer">
     insert into tbl_computer (EQUIPMENTID, GRAPHICCARD, AUDIOCARD, 
       NETWORKCARD, MOTHERBOARD, OSNAME, 
       OSID)
@@ -75,7 +75,7 @@
       #{NETWORKCARD,jdbcType=VARCHAR}, #{MOTHERBOARD,jdbcType=VARCHAR}, #{OSNAME,jdbcType=VARCHAR}, 
       #{OSID,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.Computer">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.Computer">
     insert into tbl_computer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="EQUIPMENTID != null">
@@ -124,7 +124,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.Computer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.Computer">
     update tbl_computer
     <set>
       <if test="GRAPHICCARD != null">
@@ -148,7 +148,7 @@
     </set>
     where EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.Computer">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.Computer">
     update tbl_computer
     set GRAPHICCARD = #{GRAPHICCARD,jdbcType=VARCHAR},
       AUDIOCARD = #{AUDIOCARD,jdbcType=VARCHAR},

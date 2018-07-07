@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.FaqAnswerMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.FaqAnswer">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.FaqAnswer">
     <id column="FAQANSWERID" jdbcType="VARCHAR" property="FAQANSWERID" />
     <result column="FAQQUESTIONID" jdbcType="VARCHAR" property="FAQQUESTIONID" />
     <result column="USERID" jdbcType="VARCHAR" property="USERID" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.pojo.FaqAnswer">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xjtu.iqa.po.FaqAnswer">
     <result column="FAQCONTENT" jdbcType="LONGVARCHAR" property="FAQCONTENT" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -44,7 +44,7 @@
   <sql id="Blob_Column_List">
     FAQCONTENT
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.pojo.FaqAnswerExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.xjtu.iqa.po.FaqAnswerExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -61,7 +61,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.FaqAnswerExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.FaqAnswerExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -88,13 +88,13 @@
     delete from tbl_faqanswer
     where FAQANSWERID = #{FAQANSWERID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.FaqAnswer">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.FaqAnswer">
     insert into tbl_faqanswer (FAQANSWERID, FAQQUESTIONID, USERID, 
       FAQCONTENT)
     values (#{FAQANSWERID,jdbcType=VARCHAR}, #{FAQQUESTIONID,jdbcType=VARCHAR}, #{USERID,jdbcType=VARCHAR}, 
       #{FAQCONTENT,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.FaqAnswer">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.FaqAnswer">
     insert into tbl_faqanswer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="FAQANSWERID != null">
@@ -125,7 +125,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.FaqAnswer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.FaqAnswer">
     update tbl_faqanswer
     <set>
       <if test="FAQQUESTIONID != null">
@@ -140,17 +140,42 @@
     </set>
     where FAQANSWERID = #{FAQANSWERID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.pojo.FaqAnswer">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xjtu.iqa.po.FaqAnswer">
     update tbl_faqanswer
     set FAQQUESTIONID = #{FAQQUESTIONID,jdbcType=VARCHAR},
       USERID = #{USERID,jdbcType=VARCHAR},
       FAQCONTENT = #{FAQCONTENT,jdbcType=LONGVARCHAR}
     where FAQANSWERID = #{FAQANSWERID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.FaqAnswer">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.FaqAnswer">
     update tbl_faqanswer
     set FAQQUESTIONID = #{FAQQUESTIONID,jdbcType=VARCHAR},
       USERID = #{USERID,jdbcType=VARCHAR}
     where FAQANSWERID = #{FAQANSWERID,jdbcType=VARCHAR}
   </update>
+  
+  <select id="getAnswerByQuestionId" parameterType="com.xjtu.iqa.po.FaqAnswer" resultMap="BaseResultMap">
+    	SELECT * FROM TBL_FAQanswer WHERE FAQQUESTIONID=#{0}
+
+  </select>
+  <select id="findUserIdByFAQQuestionId" parameterType="com.xjtu.iqa.po.FaqAnswer" resultMap="BaseResultMap">
+	SELECT USERID FROM TBL_FAQanswer WHERE FAQQUESTIONID=#{0}
+
+  </select>
+  <select id="getContentById" parameterType="com.xjtu.iqa.po.FaqAnswer" resultMap="BaseResultMap">
+	SELECT FAQCONTENT FROM TBL_FAQanswer WHERE FAQANSWERID=#{0}
+
+  </select>
+  <select id="getContentByQuestionId" parameterType="com.xjtu.iqa.po.FaqAnswer" resultType="String">
+	SELECT FAQCONTENT FROM TBL_FAQanswer WHERE FAQQUESTIONID=#{0}
+
+  </select>
+  <update id="updateFaqAnswerInfo" parameterType="com.xjtu.iqa.po.FaqAnswer">
+	UPDATE TBL_FAQanswer SET FAQCONTENT=#{1}  WHERE FAQQUESTIONID=#{0}
+
+  </update>
+  <select id="notice_faqanswerList" parameterType="com.xjtu.iqa.po.FaqAnswer" resultMap="BaseResultMap">
+	SELECT * FROM TBL_FAQanswer WHERE USERID=#{0}
+
+  </select>
 </mapper>

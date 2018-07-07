@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xjtu.iqa.mapper.CurrentConfigureMapper">
-  <resultMap id="BaseResultMap" type="com.xjtu.iqa.pojo.CurrentConfigure">
+  <resultMap id="BaseResultMap" type="com.xjtu.iqa.po.CurrentConfigure">
     <id column="CURRENTCONFIGUREID" jdbcType="VARCHAR" property="CURRENTCONFIGUREID" />
     <result column="EQUIPMENTID" jdbcType="VARCHAR" property="EQUIPMENTID" />
     <result column="CONFIGUREVERSION" jdbcType="VARCHAR" property="CONFIGUREVERSION" />
@@ -40,7 +40,7 @@
   <sql id="Base_Column_List">
     CURRENTCONFIGUREID, EQUIPMENTID, CONFIGUREVERSION, CONFIGURENAME, CONFIGURETYPE
   </sql>
-  <select id="selectByExample" parameterType="com.xjtu.iqa.pojo.CurrentConfigureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xjtu.iqa.po.CurrentConfigureExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -65,7 +65,7 @@
     delete from tbl_currentconfigure
     where CURRENTCONFIGUREID = #{CURRENTCONFIGUREID,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.xjtu.iqa.pojo.CurrentConfigure">
+  <insert id="insert" parameterType="com.xjtu.iqa.po.CurrentConfigure">
     insert into tbl_currentconfigure (CURRENTCONFIGUREID, EQUIPMENTID, 
       CONFIGUREVERSION, CONFIGURENAME, CONFIGURETYPE
       )
@@ -73,7 +73,7 @@
       #{CONFIGUREVERSION,jdbcType=VARCHAR}, #{CONFIGURENAME,jdbcType=VARCHAR}, #{CONFIGURETYPE,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xjtu.iqa.pojo.CurrentConfigure">
+  <insert id="insertSelective" parameterType="com.xjtu.iqa.po.CurrentConfigure">
     insert into tbl_currentconfigure
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="CURRENTCONFIGUREID != null">
@@ -110,7 +110,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.pojo.CurrentConfigure">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.iqa.po.CurrentConfigure">
     update tbl_currentconfigure
     <set>
       <if test="EQUIPMENTID != null">
@@ -128,7 +128,7 @@
     </set>
     where CURRENTCONFIGUREID = #{CURRENTCONFIGUREID,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.pojo.CurrentConfigure">
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.iqa.po.CurrentConfigure">
     update tbl_currentconfigure
     set EQUIPMENTID = #{EQUIPMENTID,jdbcType=VARCHAR},
       CONFIGUREVERSION = #{CONFIGUREVERSION,jdbcType=VARCHAR},
