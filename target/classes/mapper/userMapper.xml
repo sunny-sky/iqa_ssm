@@ -256,4 +256,11 @@
 	<select id="getAllUsers_limit" parameterType="com.xjtu.iqa.po.User" resultMap="BaseResultMap">
 		SELECT * FROM TBL_User WHERE USERSTATE = #{0} ORDER BY CREATETIME DESC LIMIT #{1}
 	</select>
+	<select id="isLogin" parameterType="String" resultType="boolean">
+		SELECT COUNT(USERID) FROM TBL_User WHERE USERNAME=#{0} AND USERPASSWORD=#{1} AND USERSTATE=2
+	</select>
+	<select id="getUserInfo" parameterType="String" resultMap="BaseResultMap">
+		SELECT * FROM TBL_User WHERE USERNAME=#{0}
+	</select>
+	
 </mapper>

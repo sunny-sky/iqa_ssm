@@ -28,4 +28,10 @@ public interface UserMapper {
 
 	//获取所有待审核用户_限定数量
 	List<User> getAllUsers_limit(int userState, int num);
+	
+	//判断用户是否登录
+	Boolean isLogin(String username, String password);
+	
+	//zyq_message_ajax_获得用户基本信息
+	List<User> getUserInfo(String username);
 }

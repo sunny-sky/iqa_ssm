@@ -31,4 +31,11 @@
  
     <!-- 对上传文件的解析-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*" />
+            <bean class="com.xjtu.iqa.interceptor.CommonInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

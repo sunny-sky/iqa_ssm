@@ -26,8 +26,8 @@ public class PageController {
 	
 	//登录页面
 	 @RequestMapping(value="login",method=RequestMethod.GET)
-     public ModelAndView login(){
-  	   ModelAndView mv=new ModelAndView("login");
+     public ModelAndView adminLogin(){
+  	   ModelAndView mv=new ModelAndView("admin/login");
   	   return mv;
      }
 			

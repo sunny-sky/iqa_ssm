@@ -76,12 +76,12 @@ public class HomeController {
 		String username = (String) session.getAttribute("UserName");
 		JSONObject jsonObject = new JSONObject();
 
-//		if (username == null) {
-//			jsonObject.put("value", "0");
-//			String result = JsonUtil.toJsonString(jsonObject);
-//			logger.info("获取地区名及各地区设备数量"+result);
-//			return result;
-//		} else {
+		if (username == null) {
+			jsonObject.put("value", "0");
+			String result = JsonUtil.toJsonString(jsonObject);
+			logger.info("获取地区名及各地区设备数量"+result);
+			return result;
+		} else {
 			//
 			List<HomePageView> list = homeService.regionCount();
 			jsonObject.put("regionList", list);
@@ -89,7 +89,7 @@ public class HomeController {
 			String result = JsonUtil.toJsonString(jsonObject);
 			logger.info("获取地区名及各地区设备数量"+result);
 			return result;
-//		}
+		}
 	}
 	
 	/*
@@ -101,12 +101,12 @@ public class HomeController {
 		String username = (String) session.getAttribute("UserName");
 		JSONObject jsonObject = new JSONObject();
 		
-//		if (username==null) {
-//			jsonObject.put("value", "0");
-//			String result = JsonUtil.toJsonString(jsonObject); 
-//			logger.info("获取一级分类名及各分类数量"+result);
-//			return result;
-//		}else{
+		if (username==null) {
+			jsonObject.put("value", "0");
+			String result = JsonUtil.toJsonString(jsonObject); 
+			logger.info("获取一级分类名及各分类数量"+result);
+			return result;
+		}else{
 			//
 		 	List<HomePageView> list = homeService.classifyCount();
 			jsonObject.put("classifyList", list);
@@ -114,7 +114,7 @@ public class HomeController {
 			String result = JsonUtil.toJsonString(jsonObject); 
 			logger.info("获取一级分类名及各分类数量"+result);
 			return result;
-//		}
+		}
 	}
 	
 	@ResponseBody
@@ -124,12 +124,12 @@ public class HomeController {
 		String username = (String) session.getAttribute("UserName");
 		JSONObject jsonObject = new JSONObject();
 		
-//		if (username==null) {
-//			jsonObject.put("value", "0");
-//			String result = JsonUtil.toJsonString(jsonObject); 
-//			logger.info("eventAndProblem"+result);
-//			return result;
-//		}else{
+		if (username==null) {
+			jsonObject.put("value", "0");
+			String result = JsonUtil.toJsonString(jsonObject); 
+			logger.info("eventAndProblem"+result);
+			return result;
+		}else{
 			//
 		 	List<HomePageView> list = homeService.eventAndProblem();
 			jsonObject.put("time", list);
@@ -137,6 +137,6 @@ public class HomeController {
 			String result = JsonUtil.toJsonString(jsonObject); 		
 			logger.info("eventAndProblem"+result);
 			return result;
-//		}
+		}
 	}
 }
