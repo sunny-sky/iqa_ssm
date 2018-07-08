@@ -251,4 +251,31 @@
       REGION = #{REGION,jdbcType=VARCHAR}
     where EQUIPMENT_ID = #{EQUIPMENT_ID,jdbcType=INTEGER}
   </update>
+  <select id="isExist"  resultType="java.lang.Integer">
+	SELECT COUNT(EQUIPMENT_ID) FROM TBL_Equipments WHERE USER=#{0} AND DEPARTMENT=#{1}
+  </select>
+  <insert id="addUserEquipment">
+	INSERT INTO TBL_Equipments(BRAND,CONFIGURE_TIME,DEPARTMENT,USER,CPU,RAM,ROM,OS,BROWSER,OFFICE_SOFTWARE,USED_FOR,IP_ADDRESS,MAC_ADDRESS,REGION)
+	VALUES(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13})
+  </insert>
+  <select id="getAllEquipments"  resultMap="BaseResultMap">
+	SELECT * FROM TBL_Equipments ORDER BY REGION DESC
+  </select>
+  <select id="getEquipmentsInfo" parameterType="com.xjtu.iqa.po.Equipments" resultMap="BaseResultMap">
+	SELECT * FROM TBL_Equipments WHERE USER=#{0} AND DEPARTMENT=#{1}
+  </select>
+  <update id="updateEquipment">
+  	UPDATE TBL_Equipments SET BRAND=#{1}, CONFIGURE_TIME=#{2}, DEPARTMENT=#{3}, USER=#{4}, CPU=#{5},  RAM=#{6},  ROM=#{7}
+  	,  OS=#{8},  BROWSER=#{9},  OFFICE_SOFTWARE=#{10},  USED_FOR=#{11},  IP_ADDRESS=#{12},  MAC_ADDRESS=#{13},  REGION=#{14} WHERE EQUIPMENT_ID=#{0}
+  </update>
+  <delete id="deleteEquipment" parameterType="String">
+  	DELETE FROM TBL_Equipments WHERE EQUIPMENT_ID=#{0}
+  </delete>
+  <select id="getRegions"  resultMap="BaseResultMap">
+	SELECT distinct(REGION) FROM tbl_equipments;
+  </select>
+  <select id="getEquipmentCountsByRegion" parameterType="String" resultType="java.lang.Integer">
+	SELECT COUNT(1) FROM TBL_Equipments WHERE REGION=#{0}
+  </select>
+  
 </mapper>

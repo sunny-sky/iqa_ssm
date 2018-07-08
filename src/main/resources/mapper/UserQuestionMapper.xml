@@ -153,7 +153,7 @@
   	AND TBL_RobotAnswer.SATICFACTION = #{0} AND TBL_RobotAnswer.QUESTIONSTATE = #{1}
 
   </select>
-  <select id="eventCount" parameterType="com.xjtu.iqa.po.UserQuestion" resultType="String">
+  <select id="eventCount" parameterType="com.xjtu.iqa.po.UserQuestion" resultType="int">
   	SELECT COUNT(1) FROM TBL_UserQuestion,TBL_RobotAnswer 
   	WHERE TBL_UserQuestion.USERQUESTIONID = TBL_RobotAnswer.USERQUESTIONID 
   	AND TBL_RobotAnswer.SATICFACTION = #{0} AND TBL_RobotAnswer.QUESTIONSTATE = #{1} 

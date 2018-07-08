@@ -196,7 +196,7 @@
 		FROM TBL_FAQclassify WHERE FAQCLASSIFYNAME=#{0} AND
 		FAQPARENTID=#{1}
 	</select>
-	<select id="secondClassifyCount" parameterType="com.xjtu.iqa.po.FaqClassify" resultMap="BaseResultMap">
+	<select id="secondClassifyCount" parameterType="com.xjtu.iqa.po.FaqClassify" resultType="int">
 		SELECT COUNT(1)
 		FROM TBL_FAQclassify WHERE FAQPARENTID=#{0}
 	</select>

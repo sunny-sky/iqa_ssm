@@ -3,6 +3,7 @@ package com.xjtu.iqa.service.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -12,10 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.iqa.mapper.CommunityQuestionMapper;
+import com.xjtu.iqa.mapper.EquipmentsMapper;
+import com.xjtu.iqa.mapper.FaqClassifyMapper;
 import com.xjtu.iqa.mapper.FaqQuestionMapper;
 import com.xjtu.iqa.mapper.UserMapper;
 import com.xjtu.iqa.mapper.UserQuestionMapper;
 import com.xjtu.iqa.po.CommunityQuestion;
+import com.xjtu.iqa.po.Equipments;
+import com.xjtu.iqa.po.FaqClassify;
 import com.xjtu.iqa.po.FaqQuestion;
 import com.xjtu.iqa.po.User;
 import com.xjtu.iqa.po.UserQuestion;
@@ -32,6 +37,10 @@ public class HomeServiceImpl implements HomeService {
 	UserMapper userMapper;
 	@Autowired
 	FaqQuestionMapper faqQuestionMapper;
+	@Autowired
+	EquipmentsMapper equipmentsMapper;
+	@Autowired
+	FaqClassifyMapper faqClassifyMapper;
 
 	/**
 	 * 任务列表
@@ -90,6 +99,51 @@ public class HomeServiceImpl implements HomeService {
 		return list;
 	}
 
+	// 获取地区名及各地区设备数量
+	@Override
+	public List<HomePageView> regionCount() {
+		// TODO Auto-generated method stub
+		List<HomePageView> homePageViews = new ArrayList<HomePageView>();
+		List<Equipments> equipments = equipmentsMapper.getRegions();
+
+		for (Equipments eList : equipments) {
+			HomePageView homePageView = new HomePageView();
+			homePageView.setRegions(eList.getREGION());
+			// 各地区配置数
+			int equipmentCounts = equipmentsMapper.getEquipmentCountsByRegion(eList.getREGION());
+			homePageView.setEquipmentCounts(equipmentCounts);
+			homePageViews.add(homePageView);
+		}
+		return homePageViews;
+	}
+
+	// 获取待处理事件/问题数
+	@Override
+	public List<HomePageView> eventAndProblem() {
+		List<HomePageView> homePageViews = new ArrayList<HomePageView>();
+		Date date = new Date();
+
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.DAY_OF_MONTH, 1);
+
+		for (int i = 0; i < 7; i++) {
+			HomePageView homePageView = new HomePageView();
+			String str = getdate(-i);
+			String time = str.substring(0, 10);
+			homePageView.setTime(time);
+			System.out.println("时间：" + i + time);
+			// 获取当日待处理事件数
+			int eventCount = userQuestionMapper.eventCount(0, 0, time);
+			homePageView.setEventCount(eventCount);
+			// 获取当日待处理问题数
+			int problemCount = communityQuestionMapper.problemCount_time(0, 0, time);
+			homePageView.setProblemCount(problemCount);
+			homePageViews.add(homePageView);
+		}
+		return homePageViews;
+	}
+
 	// 对list里面的元素进行time的排序
 	private static List<HomePageView> ListSort(List<HomePageView> list) {
 		Collections.sort(list, new Comparator<HomePageView>() {
@@ -115,4 +169,32 @@ public class HomeServiceImpl implements HomeService {
 		});
 		return list;
 	}
+
+	// 获取日期
+	public static String getdate(int i) { // //获取前后日期 i为正数 向后推迟i天，负数时向前提前i天
+		Date dat = null;
+		Calendar cd = Calendar.getInstance();
+		cd.add(Calendar.DATE, i);
+		dat = cd.getTime();
+		SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = dformat.format(dat);
+		return time;
+	}
+	
+
+	 //获取一级分类名及各分类数量
+	public List<HomePageView> classifyCount() {
+		List<HomePageView> homePageViews = new ArrayList<HomePageView>();
+		List<FaqClassify> firstClassify = faqClassifyMapper.FirstClassify_robot();
+		
+		for(FaqClassify cList:firstClassify){
+			HomePageView homePageView = new HomePageView(); 
+			homePageView.setClassifyName(cList.getFAQCLASSIFYNAME());
+			int secondClassifyCount = faqClassifyMapper.secondClassifyCount(cList.getFAQCLASSIFYID());
+			homePageView.setClassifyCount(secondClassifyCount);
+			homePageViews.add(homePageView);			
+		}
+		return homePageViews;
+	}
+
 }
