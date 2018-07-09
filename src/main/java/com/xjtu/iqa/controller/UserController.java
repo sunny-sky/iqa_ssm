@@ -45,8 +45,8 @@ public class UserController {
 			List<User> list = userMapper.getUserInfo(username);
 
 			session.setAttribute("nameOrEmail", username);
-			session.setAttribute("UserName", list.get(0).getUSERNAME());
-			request.getSession().setAttribute("user", username);
+			session.setAttribute("username", list.get(0).getUSERNAME());
+			request.getSession().setAttribute("username", username);
 
 			jsonObject.put("value", "1");
 			String result = JsonUtil.toJsonString(jsonObject);

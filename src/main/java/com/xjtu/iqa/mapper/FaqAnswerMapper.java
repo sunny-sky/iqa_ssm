@@ -29,6 +29,11 @@ public interface FaqAnswerMapper {
 
 	// 根据faq问题id查找用户id
 	String findUserIdByFAQQuestionId(String faqquestionid);
+	
+	/**
+	 * zyq_spider_知识库答案的添加
+	 */
+	void save(FaqAnswer faqAnswer);
 
 	/********************************************* 后台 ***************************************************************/
 	// 获取faqanswerId相对应的内容

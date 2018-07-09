@@ -73,7 +73,7 @@ public class HomeController {
 	@RequestMapping(value = { "regionCount" }, method = {
 			org.springframework.web.bind.annotation.RequestMethod.POST }, produces = "application/json;charset=UTF-8")
 	public String regionCount(HttpServletRequest request, HttpSession session) {
-		String username = (String) session.getAttribute("UserName");
+		String username = (String) session.getAttribute("username");
 		JSONObject jsonObject = new JSONObject();
 
 		if (username == null) {
@@ -98,7 +98,7 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping(value={"classifyCount"},method={org.springframework.web.bind.annotation.RequestMethod.POST},produces="application/json;charset=UTF-8")
 	public String firstClassifyCount(HttpServletRequest request,HttpSession session){				
-		String username = (String) session.getAttribute("UserName");
+		String username = (String) session.getAttribute("username");
 		JSONObject jsonObject = new JSONObject();
 		
 		if (username==null) {
@@ -121,7 +121,7 @@ public class HomeController {
 	@RequestMapping(value={"eventAndProblem"},method={org.springframework.web.bind.annotation.RequestMethod.POST},produces="application/json;charset=UTF-8")
 	public String eventAndProblem(HttpServletRequest request,HttpSession session){
 				
-		String username = (String) session.getAttribute("UserName");
+		String username = (String) session.getAttribute("username");
 		JSONObject jsonObject = new JSONObject();
 		
 		if (username==null) {

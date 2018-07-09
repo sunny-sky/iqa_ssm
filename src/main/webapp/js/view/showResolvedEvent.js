@@ -1,10 +1,10 @@
-var base = $('#base').val();
+
 //一级分类
 $(document).ready(
    function(){
          $.ajax({
              type: "GET",
-             url: base+"/getFirstLevel.html",            
+             url: "getFirstLevel",            
              dataType: "json",
              success: function(data){            
      			 for(var i in data){ 
@@ -21,7 +21,7 @@ var element = document.getElementById("specialCategoryId");
 var classifyId = element.options[element.selectedIndex].value;
 $.ajax({
      type: "GET",
-     url: base+"/getSecondLevel.html"+"?"+"classifyId="+classifyId,            
+     url: "getSecondLevel"+"?"+"classifyId="+classifyId,            
      dataType: "json",
      success: function(data){
      			 document.getElementById("subspecialCategoryId").options.length=0;              	
@@ -78,11 +78,11 @@ if(na.test($("#title").val())&&kw.test($("#keywords").val())&&$("#subspecialCate
 					self.location='login.html';
 				}else if(data.value=="1"){
 					alert("添加成功");
-					self.location.href = base+"/eventPage.html";
+					self.location.href = "eventPage";
 					
 				}else{
 					alert("重复添加");
-					self.location.href = base+"/eventPage.html";
+					self.location.href = "eventPage";
 				}
 			}
 		})

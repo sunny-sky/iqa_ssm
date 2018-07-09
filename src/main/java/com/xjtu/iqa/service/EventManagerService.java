@@ -3,6 +3,7 @@ package com.xjtu.iqa.service;
 import java.util.List;
 
 import com.xjtu.iqa.vo.EventView;
+import com.xjtu.iqa.vo.Event_AnswerView;
 
 public interface EventManagerService {
 	/**
@@ -23,11 +24,11 @@ public interface EventManagerService {
 	/**
 	 * abstract:事件已处理_查看事件详情_showResolvedEvent.ftl
 	 */
-//	Event_AnswerView getResolvedEventDetail(String userQuestionId);
+	Event_AnswerView getResolvedEventDetail(String userQuestionId);
 	
 	/**
 	 * abstract:事件待处理_查看事件详情
 	 * 
 	 */
-//	EventView getUnResolvedEventDetail(String userQuestionId);
+	EventView getUnResolvedEventDetail(String userQuestionId);
 }

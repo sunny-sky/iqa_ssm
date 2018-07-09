@@ -159,7 +159,7 @@
 		TBL_FAQclassify WHERE FAQCLASSIFYID=#{0}
 	</select>
 	<select id="getInfoById" parameterType="com.xjtu.iqa.po.FaqClassify" resultMap="BaseResultMap">
-		ELECT * FROM
+		SELECT * FROM
 		TBL_FAQclassify WHERE FAQCLASSIFYID=#{0}
 	</select>
 	<select id="SecondClassify_robot" parameterType="com.xjtu.iqa.po.FaqClassify" resultMap="BaseResultMap">

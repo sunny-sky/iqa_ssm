@@ -162,7 +162,7 @@
 	SELECT USERID FROM TBL_FAQanswer WHERE FAQQUESTIONID=#{0}
 
   </select>
-  <select id="getContentById" parameterType="com.xjtu.iqa.po.FaqAnswer" resultMap="BaseResultMap">
+  <select id="getContentById" parameterType="String" resultType="String">
 	SELECT FAQCONTENT FROM TBL_FAQanswer WHERE FAQANSWERID=#{0}
 
   </select>

@@ -32,7 +32,8 @@ public interface UserQuestionMapper {
   	//查找每日待处理事件
   	int eventCount(int saticfaction, int questionstate, String time);
   	
-  
+  	//zzl _获取用户问题信息_2017年11月4日21:32:11
+  	List<UserQuestion> getUserQuestionById(String userQuestionId);
 
   	int FindEventViewCountBySaticfaction(int saticfaction, int questionState);
 }

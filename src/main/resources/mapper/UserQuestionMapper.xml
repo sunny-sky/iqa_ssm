@@ -147,7 +147,7 @@
   	AND TBL_RobotAnswer.SATICFACTION = #{0} AND TBL_RobotAnswer.QUESTIONSTATE = #{1} 
   	ORDER BY TBL_UserQuestion.QUESTIONTIME DESC LIMIT #{2}
   </select>
-  <select id="getResolvedCount" parameterType="com.xjtu.iqa.po.UserQuestion" resultType="String">
+  <select id="getResolvedCount" parameterType="com.xjtu.iqa.po.UserQuestion" resultType="int">
   	SELECT COUNT(1) FROM TBL_UserQuestion,TBL_RobotAnswer 
   	WHERE TBL_UserQuestion.USERQUESTIONID = TBL_RobotAnswer.USERQUESTIONID 
   	AND TBL_RobotAnswer.SATICFACTION = #{0} AND TBL_RobotAnswer.QUESTIONSTATE = #{1}
@@ -165,6 +165,9 @@
   	WHERE TBL_UserQuestion.USERQUESTIONID = TBL_RobotAnswer.USERQUESTIONID 
   	AND TBL_RobotAnswer.SATICFACTION = #{0} AND TBL_RobotAnswer.QUESTIONSTATE = #{1}
 
+  </select>
+  <select id="getUserQuestionById" parameterType="String" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_UserQuestion WHERE USERQUESTIONID=#{0}
   </select>
   
 </mapper>

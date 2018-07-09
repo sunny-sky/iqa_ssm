@@ -74,7 +74,7 @@
 				self.location='login';
 			}else if(data.value=="1"){
 				
-				self.location.href = "index";
+				self.location = "index";
         	}                	
             }
            

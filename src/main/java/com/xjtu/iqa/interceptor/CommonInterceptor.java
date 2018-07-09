@@ -1,14 +1,19 @@
 package com.xjtu.iqa.interceptor;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class CommonInterceptor extends HandlerInterceptorAdapter{
+	
+	Logger logger = Logger.getLogger(CommonInterceptor.class);  
 	 /**
      * 在业务处理器处理请求之前被调用
      * 如果返回false
@@ -42,14 +47,17 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
         String uri = request.getRequestURI();
         uri = StringUtils.remove(uri, contextPath);
         System.out.println(uri);
-        String user = (String)session.getAttribute("user");
-        if(uri.equals("/login")){
+        String username = (String)session.getAttribute("username");
+        if(uri.equals("/login")||uri.equals("/adminLogin")){
+        	logger.info("拦截器/login");
         	return true;
         }
-        else if(user!=null){
+        else if(username!=null){
+        	logger.info("拦截器username!=null");
         	return true;
         }
         else {
+        	logger.info("拦截器else");
         	response.sendRedirect("login");
         	return false;
         }

@@ -262,5 +262,11 @@
 	<select id="getUserInfo" parameterType="String" resultMap="BaseResultMap">
 		SELECT * FROM TBL_User WHERE USERNAME=#{0}
 	</select>
+	<select id="getUserNameById" parameterType="String" resultType="String">
+		SELECT USERNAME FROM TBL_User WHERE USERID=#{0}
+	</select>
+	<select id="getUserInfoById" parameterType="String" resultMap="BaseResultMap">
+		SELECT * FROM TBL_User WHERE USERID=#{0}
+	</select>
 	
 </mapper>

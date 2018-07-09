@@ -19,4 +19,13 @@ public interface RobotAnswerMapper {
     int updateByPrimaryKeySelective(RobotAnswer record);
 
     int updateByPrimaryKey(RobotAnswer record);
+    
+  //查看是否已填写过满意度
+  	String getQuertionInfo(String questionId);
+  	
+  	//更新已处理的状态
+  	void updateRobotAnswerState(String questionId, int questionState);
+  	
+  	//zzl_获取应答表中问题对应的知识库答案id_2017年11月4日21:31:49
+  	String getFaqAnswerIdByQuestionId(String userQuestionId);
 }

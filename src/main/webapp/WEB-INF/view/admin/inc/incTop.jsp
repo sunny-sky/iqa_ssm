@@ -25,8 +25,8 @@
 				<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
 					<span class="ng-scope"></span>
 				</li>
-				<li class="loginLinkLi" id="userNameText">您好：${UserName}</li>
-				<li><a class="J_menuItem" href="homePage.html"> <i
+				<li class="loginLinkLi" id="userNameText">您好：${username}</li>
+				<li><a class="J_menuItem" href="homePage"> <i
 						class="fa fa-home"></i> <span class="nav-label">首页</span>
 				</a></li>
 
@@ -37,10 +37,10 @@
 						class="nav-label">ITIL管理流程</span> <span class="fa arrow"></span>
 				</a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="eventPage.html"> <i
+						<li><a class="J_menuItem" href="eventPage"> <i
 								class="fa fa-paste"></i> <span class="nav-label">事件管理</span>
 						</a></li>
-						<li><a class="J_menuItem" href="problemPage.html"> <i
+						<li><a class="J_menuItem" href="problemPage"> <i
 								class="fa fa-warning"></i> <span class="nav-label">问题管理</span>
 						</a></li>
 						<li><a href=""> <i class="fa fa-edit"></i>&nbsp;设备管理<span

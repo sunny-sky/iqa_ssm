@@ -1,9 +1,9 @@
-var base = $('#base').val();
+
 //一级分类
   $(document).ready(function() {
         $.ajax({
             type: "GET",
-            url: base+"/getFirstLevel.html",
+            url: "getFirstLevel",
             dataType: "json",
             success: function(data) {
                 for (var i in data) {
@@ -19,7 +19,7 @@ var element = document.getElementById("specialCategoryId");
 var classifyId = element.options[element.selectedIndex].value;
 $.ajax({
      type: "GET",
-     url: base+"/getSecondLevel.html"+"?"+"classifyId="+classifyId,            
+     url: "getSecondLevel"+"?"+"classifyId="+classifyId,            
      dataType: "json",
      success: function(data){
      			 document.getElementById("subspecialCategoryId").options.length=0;              	
@@ -74,7 +74,7 @@ $("#sub").click(function(){
 	var keywords = document.getElementById("keywords").value;
  	  $.ajax({
 		type:"POST",
-		url:base+"/saveCommunityQuestionToFAQ.html",
+		url:"saveCommunityQuestionToFAQ",
 		data:{
 			"communityQuestionId":communityQuestionId,
 			"title":title,
@@ -94,10 +94,10 @@ $("#sub").click(function(){
 				self.location='login.html';
 			}else if(data.value=="1"){
 				alert("添加成功");
-				self.location.href = base+"/problemPage.html";
+				self.location.href = "problemPage";
 			}else{
 				alert("重复添加");
-				self.location.href = base+"/problemPage.html";
+				self.location.href = "problemPage";
 			} 
 			
 		}
