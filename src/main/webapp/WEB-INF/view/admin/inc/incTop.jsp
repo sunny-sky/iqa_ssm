@@ -47,9 +47,8 @@
 								class="fa arrow"></span>
 						</a>
 							<ul class="nav nav-third-level">
-								<li><a class="J_menuItem"
-									href="configureEquipmentPage.html">设备信息库</a></li>
-								<li><a class="J_menuItem" href="configureUploadPage.html">新增设备信息</a></li>
+								<li><a class="J_menuItem" href="configureEquipmentPage">设备信息库</a></li>
+								<li><a class="J_menuItem" href="configureUploadPage">新增设备信息</a></li>
 							</ul></li>
 						<li><a href=""> <i class="fa fa-edit"></i>&nbsp;知识管理<span
 								class="fa arrow"></span>
