@@ -54,8 +54,8 @@
 								class="fa arrow"></span>
 						</a>
 							<ul class="nav nav-third-level">
-								<li><a class="J_menuItem" href="faqPage.html">知识库</a></li>
-								<li><a class="J_menuItem" href="faqCommendPage.html">faq推荐栏</a></li>
+								<li><a class="J_menuItem" href="faqPage">知识库</a></li>
+								<li><a class="J_menuItem" href="faqCommendPage">faq推荐栏</a></li>
 							</ul></li>
 					</ul></li>
 
@@ -66,7 +66,7 @@
 				<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
 					<span class="ng-scope"></span>
 				</li>
-				<li><a class="J_menuItem" href="logindex.html"> <i
+				<li><a class="J_menuItem" href="logIndex"> <i
 						class="fa fa-user-md"></i> <span class="nav-label">日志管理</span>
 				</a></li>
 				<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
@@ -76,12 +76,12 @@
 						class="nav-label">用户管理</span> <span class="fa arrow"></span>
 				</a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="userPage.html"> <i
+						<li><a class="J_menuItem" href="userPage"> <i
 								class="fa fa-table"></i> <span class="nav-label">用户管理</span>
 						</a></li>
 					</ul>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="changePasswordPage.html">
+						<li><a class="J_menuItem" href="changePasswordPage">
 								<i class="fa fa-table"></i> <span class="nav-label">admin密码修改</span>
 						</a></li>
 					</ul></li>
@@ -105,10 +105,10 @@
 						class="nav-label">权限管理</span> <span class="fa arrow"></span>
 				</a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="permissionPage.html"> <i
+						<li><a class="J_menuItem" href="permissionPage"> <i
 								class="fa fa-table"></i> <span class="nav-label">权限列表</span>
 						</a></li>
-						<li><a class="J_menuItem" href="permissionAssignPage.html">
+						<li><a class="J_menuItem" href="permissionAssignPage">
 								<i class="fa fa-warning"></i> <span class="nav-label">权限分配</span>
 						</a></li>
 					</ul></li>

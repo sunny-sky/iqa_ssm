@@ -1,4 +1,3 @@
-var base = $('#base').val();
 /* 给角色分配权限 */
   var isCheckAll = false;
 
@@ -42,7 +41,7 @@ function selectRole() {
     
     $.ajax({
         type: "POST",
-        url: base+"/selectRolePermission.html",
+        url: "selectRolePermission",
         data: {
         	"roleId":roleId
         },
@@ -102,7 +101,7 @@ $("#b1").click(function(){
 		    	 
      $.ajax({
       type: "POST",
-      url: base+"/permissionChecked.html",
+      url: "permissionChecked",
       data: {
     	  roleId:roleId,
     	  checkedIds:checkedIds                
@@ -168,7 +167,7 @@ $("#b2").click(function(){
 
     $.ajax({
       type: "POST",
-      url: base+"/permissionUnChecked.html",
+      url: "permissionUnChecked",
       data: {
     	  roleId:roleId,
     	  checkedIds:checkedIds                

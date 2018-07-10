@@ -62,7 +62,6 @@
                 
                 <tbody >    
                   <c:forEach  items="${eventUnresolved}" var="eu" varStatus="status">
-                 <!-- <#list eventUnresolved as eventUnresolved> -->
 					<tr class="" id = "${eu.userQuestionId}">
 						<td  style="width: 5%;text-align: center;">${status.index+1}</td>
 						<td  style="width: 70%;">${eu.userQuestionTitle}</td>

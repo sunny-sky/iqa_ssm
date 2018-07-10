@@ -123,4 +123,30 @@
       TIME = #{TIME,jdbcType=VARCHAR}
     where PERMISSIONID = #{PERMISSIONID,jdbcType=VARCHAR}
   </update>
+  
+  <select id="getAllPermission" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Permission ORDER BY TIME DESC
+  </select>
+  <delete id="deletePermission" >
+  	DELETE FROM TBL_Permission WHERE PERMISSIONID=#{0}
+  </delete>
+  <select id="notObtainRolePermission" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Permission WHERE PERMISSIONID NOT IN (SELECT PERMISSIONID FROM tbl_role_permission WHERE ROLEID=#{0})
+  </select>
+  <select id="obtainRolePermission" resultMap="BaseResultMap">
+	SELECT * FROM tbl_role_permission,TBL_Permission WHERE tbl_role_permission.PERMISSIONID = TBL_Permission.PERMISSIONID AND tbl_role_permission.ROLEID=#{0}
+  </select>
+  <select id="getPermissionIdByPhysicalName" resultType="String">
+	SELECT PERMISSIONID FROM TBL_Permission WHERE PERMISSIONPHYSICALNAME=#{0}
+  </select>
+  <select id="getPermissionIdByPhysicalName2" resultType="String">
+	SELECT PERMISSIONID FROM TBL_Permission WHERE PERMISSIONPHYSICALNAME=#{0} AND PERMISSIONID &lt;&gt; #{1}
+  </select>
+  <select id="getPermissionIdByLogicName" resultType="String">
+	SELECT PERMISSIONID FROM TBL_Permission WHERE PERMISSIONLOGICNAME=#{0}
+  </select>
+  <select id="getPermissionIdByLogicName2" resultType="String">
+	SELECT PERMISSIONID FROM TBL_Permission WHERE PERMISSIONLOGICNAME=#{0} AND PERMISSIONID &lt;&gt; #{1}
+  </select>
+  
 </mapper>

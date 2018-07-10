@@ -158,4 +158,12 @@
       IP = #{IP,jdbcType=VARCHAR}
     where LOGID = #{LOGID,jdbcType=VARCHAR}
   </update>
+  <select id="getLogs" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Log WHERE USERID=#{0} ORDER BY LOGTIME DESC
+  </select>
+  <select id="getLog" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Log ORDER BY LOGTIME DESC LIMIT #{0},#{1}
+  </select>
+ 
+  
 </mapper>

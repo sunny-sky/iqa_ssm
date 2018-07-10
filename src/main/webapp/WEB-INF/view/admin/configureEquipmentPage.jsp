@@ -71,27 +71,27 @@
                 <tbody id = "option1">    
                  <!-- <#list equipmentsList as a> -->
                  <c:forEach items="${equipmentsList}" var="a" varStatus="status">
-                 <tr class="gradeX"> 
-                  <td style="text-align: center;width: 4%">${status.index+1 }</td>
-                  <td style="text-align: center;width: 6%">${a.USER }</td> 
-                  <td style="text-align: center;width: 6%">${a.DEPARTMENT }</td>
-                  <td style="text-align: center;width: 6%">${a.BRAND }</td> 
-                  <td style="text-align: center;width: 6%">${a.CONFIGURE_TIME }</td>
-                  <td style="text-align: center;width: 6%">${a.CPU }</td>
-                  <td style="text-align: center;width: 5%">${a.RAM }</td>
-                  <td style="text-align: center;width: 5%">${a.ROM }</td>              
-                  <td style="text-align: center;width: 8%">${a.OS }</td>
-                  <td style="text-align: center;width: 5%">${a.BROWSER }</td>
-                  <td style="text-align: center;width: 8%">${a.OFFICE_SOFTWARE }</td> 
-                  <td style="text-align: center;width: 13%">${a.USED_FOR }</td>
-                  <td style="text-align: center;width: 6%">${a.IP_ADDRESS }</td> 
-                  <td style="text-align: center;width: 6%">${a.MAC_ADDRESS }</td>
-                  <td style="text-align: center;width: 6%">${a.REGION }</td> 
-                  <td style="text-align: center;width: 10%">                  
-                  	<button class="btn btn-white btn-sm" type="button" id="computerEdit_${a.EQUIPMENT_ID}" onclick="editComputerInfo('${a.USER }','${a.DEPARTMENT}')" title="编辑" data-toggle="modal" data-target="#myModalEditComputer" ><i class="glyphicon glyphicon-pencil"></i></button> 
-                    <button class="btn btn-white btn-sm fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="从标准配置移除" id="equipmentDelete_${a.EQUIPMENT_ID }" onclick="deleteEquipment(this.id)"></button> 
-                  </td> 
-                 </tr>
+	                 <tr class="gradeX"> 
+	                  <td style="text-align: center;width: 4%">${status.index+1 }</td>
+	                  <td style="text-align: center;width: 6%">${a.USER }</td> 
+	                  <td style="text-align: center;width: 6%">${a.DEPARTMENT }</td>
+	                  <td style="text-align: center;width: 6%">${a.BRAND }</td> 
+	                  <td style="text-align: center;width: 6%">${a.CONFIGURE_TIME }</td>
+	                  <td style="text-align: center;width: 6%">${a.CPU }</td>
+	                  <td style="text-align: center;width: 5%">${a.RAM }</td>
+	                  <td style="text-align: center;width: 5%">${a.ROM }</td>              
+	                  <td style="text-align: center;width: 8%">${a.OS }</td>
+	                  <td style="text-align: center;width: 5%">${a.BROWSER }</td>
+	                  <td style="text-align: center;width: 8%">${a.OFFICE_SOFTWARE }</td> 
+	                  <td style="text-align: center;width: 13%">${a.USED_FOR }</td>
+	                  <td style="text-align: center;width: 6%">${a.IP_ADDRESS }</td> 
+	                  <td style="text-align: center;width: 6%">${a.MAC_ADDRESS }</td>
+	                  <td style="text-align: center;width: 6%">${a.REGION }</td> 
+	                  <td style="text-align: center;width: 10%">                  
+	                  	<button class="btn btn-white btn-sm" type="button" id="computerEdit_${a.EQUIPMENT_ID}" onclick="editComputerInfo('${a.USER }','${a.DEPARTMENT}')" title="编辑" data-toggle="modal" data-target="#myModalEditComputer" ><i class="glyphicon glyphicon-pencil"></i></button> 
+	                    <button class="btn btn-white btn-sm fa fa-trash-o" data-toggle="tooltip" data-placement="top" title="从标准配置移除" id="equipmentDelete_${a.EQUIPMENT_ID }" onclick="deleteEquipment(this.id)"></button> 
+	                  </td> 
+	                 </tr>
                  </c:forEach>
                  <!-- </#list>  -->
                  
@@ -447,7 +447,7 @@ $("input").blur(function() {
    
     
    <script>
-   var base = $('#base').val();
+   
     /* 获取要编辑的计算机信息 */
     function editComputerInfo(user,department) {
     	var user = user;
@@ -455,7 +455,7 @@ $("input").blur(function() {
     	if(user!=null&&department!=null){
     	 	$.ajax({
                 type: "POST",
-                url: base+"/editEquipmentsInfo.html",
+                url: "editEquipmentsInfo",
                 data: {
                     "user":user,
                     "department":department
@@ -515,7 +515,7 @@ $("input").blur(function() {
 
         $.ajax({
             type: "POST",
-            url: base+"/updateEquipments.html",
+            url: "updateEquipments",
             data: {
             	"equipmentId":equipmentId,
             	"user":user,
@@ -570,7 +570,7 @@ $("input").blur(function() {
     		if (confirm("确认删除？")) {
     	 	$.ajax({
                 type: "POST",
-                url: base+"/deleteEquipment.html",
+                url: "deleteEquipment",
                 data: {
                     "equipment_id":equipment_id
                 },

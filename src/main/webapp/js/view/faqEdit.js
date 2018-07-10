@@ -67,7 +67,7 @@ $("input").blur(function(){
             var faqcontent = document.getElementById("editor").value;          
             $.ajax({
                 type: "POST",
-                url: base+"/updateFaq.html",
+                url: "updateFaq",
                 data: {
                     "questionId":questionId,
                     "keywords": keywords,

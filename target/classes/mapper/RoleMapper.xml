@@ -99,4 +99,15 @@
     set ROLENAME = #{ROLENAME,jdbcType=VARCHAR}
     where ROLEID = #{ROLEID,jdbcType=VARCHAR}
   </update>
+  
+  <select id="getAllRoles" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Role ORDER BY ROLEID DESC
+  </select>
+  <select id="getUnGotRoleList" resultMap="BaseResultMap">
+  	SELECT * FROM TBL_Role WHERE ROLEID NOT IN (SELECT ROLEID FROM tbl_user WHERE USERID =#{0} AND USERSTATE=2)
+  </select>
+  <select id="getRoleInfoByUserId" resultMap="BaseResultMap">
+  	SELECT * FROM tbl_user,TBL_Role WHERE tbl_user.ROLEID =  TBL_Role.ROLEID AND USERID = #{0}
+  </select>
+  
 </mapper>

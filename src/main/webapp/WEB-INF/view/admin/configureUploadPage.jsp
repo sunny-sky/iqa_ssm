@@ -199,7 +199,7 @@
     <script src="js/plugins/layer/laydate/laydate.js"></script>
   
   <script>
-  var base = $('#base').val();
+  
      $("input").blur(function() {
 		$(".validate_faqadd").css("color", "#BD362F") 
 		
@@ -338,7 +338,7 @@
 
 				$.ajax({
 					type:"POST",
-					url:base+"/addUserEquipments.html",
+					url:"addUserEquipments",
 					data:{
 						"user":user,
 						"department":department,

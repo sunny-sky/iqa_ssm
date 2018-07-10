@@ -65,7 +65,7 @@ public class PageController {
 	 
 	 @RequestMapping(value="changePasswordPage",method=RequestMethod.GET)
      public ModelAndView  changePasswordPage(){
-  	   ModelAndView mv=new ModelAndView("changePasswordPage");
+  	   ModelAndView mv=new ModelAndView("admin/changePasswordPage");
   	   return mv;
      }
 }

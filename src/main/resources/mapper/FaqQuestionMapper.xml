@@ -415,7 +415,7 @@
 		TBL_FAQquestion.COLLECTION DESC LIMIT 4
 
 	</select>
-	<select id="faqadd_iscurrent" parameterType="com.xjtu.iqa.po.FaqQuestion" resultMap="BaseResultMap">
+	<select id="faqadd_iscurrent" parameterType="com.xjtu.iqa.po.FaqQuestion" resultType="String">
 		SELECT TBL_FAQquestion.FAQQUESTIONID FROM TBL_FAQquestion,TBL_FAQanswer
 		WHERE TBL_FAQquestion.FAQQUESTIONID=TBL_FAQanswer.FAQQUESTIONID AND
 		TBL_FAQquestion.FAQTITLE=#{0} AND TBL_FAQanswer.USERID=#{1}
@@ -441,15 +441,15 @@
 		SELECT * FROM
 		TBL_FAQquestion
 	</select>
-	<select id="getQuestionCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultMap="BaseResultMap">
+	<select id="getQuestionCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultType="int">
 		SELECT COUNT(1) FROM
 		TBL_FAQquestion WHERE FAQCLASSIFYID=#{0}
 	</select>
-	<select id="getCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultMap="BaseResultMap">
+	<select id="getCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultType="int">
 		SELECT COUNT(1) FROM
 		TBL_FAQquestion WHERE FAQSTATE = #{0}
 	</select>
-	<select id="faqAuditedCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultMap="BaseResultMap">
+	<select id="faqAuditedCount" parameterType="com.xjtu.iqa.po.FaqQuestion" resultType="int">
 		SELECT COUNT(1) FROM TBL_FAQquestion ,TBL_FAQclassify WHERE
 		TBL_FAQclassify.FAQPARENTID=#{0} AND TBL_FAQquestion.FAQCLASSIFYID =
 		TBL_FAQclassify.FAQCLASSIFYID AND FAQSTATE = #{1}
