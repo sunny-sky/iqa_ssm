@@ -115,7 +115,7 @@
 				<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
 					<span class="ng-scope"></span>
 				</li>
-				<li><a class="J_menuItem" href="" onclick="logout()"> <i
+				<li><a class="J_menuItem" href="logout" > <i
 						class="fa fa-warning"></i> <span class="nav-label">退出</span>
 				</a></li>
 			</ul>

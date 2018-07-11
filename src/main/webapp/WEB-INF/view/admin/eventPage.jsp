@@ -111,7 +111,6 @@
                 
                 <tbody >   
 	                <c:forEach  items="${eventResolved}" var="er" varStatus="status">
-	                 <!-- <#list eventUnresolved as eventUnresolved> -->
 						<tr class="" id = "${er.userQuestionId}">
 							<td  style="width: 5%;text-align: center;">${status.index+1}</td>
 							<td  style="width: 70%;">${er.userQuestionTitle}</td>
@@ -124,23 +123,9 @@
 								<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="忽略此问题" id = "${er.userQuestionId }" onclick="ignore(this.id)"><i class="fa fa-trash-o"></i>
 								</button>
 							</td>
-						</tr>
-					  <!-- </#list>  -->  
+						</tr>  
 					  </c:forEach> 
-                 <%-- <#list eventResolved as a>
-					<tr class="" id = "${a.userQuestionId}">
-						<td  style="width: 5%;text-align: center;">${a_index+1}</td>
-						<td  style="width: 70%;">${a.userQuestionTitle}</td>
-						<td  style="width: 8%;text-align: center;">${a.userName}</td>
-						<td  style="width: 12%;text-align: center;">${a.userQuestionTime}</td>
-						<td  style="width: 7%;text-align: center;">
-							<a class="eventinfo" href="${basePath}/showResolvedEvent.html?q=${a.userQuestionId}">查看详情</a>
-						</td>
-						<td  style="width: 5%;text-align: center;" >																				
-							<button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="忽略此问题" id = "${a.userQuestionId }" onclick="ignore(this.id)"><i class="fa fa-trash-o"></i>
-						</td>
-					</tr>
-				  </#list>    --%>             
+                              
                 </tbody> 
 		       </table>  
               </div> 
