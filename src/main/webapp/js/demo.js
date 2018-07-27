@@ -1,6 +1,6 @@
 var base = $('#base').val();
 jQuery(function() {
-    var $ = jQuery,    // just in case. Make sure it's not an other libaray.
+    	var $ = jQuery,    // just in case. Make sure it's not an other libaray.
 
         $wrap = $('#uploader'),
 

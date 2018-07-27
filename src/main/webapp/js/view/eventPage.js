@@ -6,7 +6,7 @@ function ignore(id) {
 		 if (confirm("确认删除？")) {
 		  $.ajax({
 		         type: "POST",
-		         url: base+"/ignoreUserQuestion.html",
+		         url: "ignoreUserQuestion",
 		         data: {
 		             "userQuestionId":userQuestionId                
 		         },

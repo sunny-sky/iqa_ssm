@@ -251,8 +251,8 @@
       REGION = #{REGION,jdbcType=VARCHAR}
     where EQUIPMENT_ID = #{EQUIPMENT_ID,jdbcType=INTEGER}
   </update>
-  <select id="isExist"  resultType="java.lang.Integer">
-	SELECT COUNT(EQUIPMENT_ID) FROM TBL_Equipments WHERE USER=#{0} AND DEPARTMENT=#{1}
+  <select id="isExist"  resultType="boolean">
+	SELECT COUNT(EQUIPMENT_ID) FROM TBL_Equipments WHERE USER=#{user} AND DEPARTMENT=#{department}
   </select>
   <insert id="addUserEquipment">
 	INSERT INTO TBL_Equipments(BRAND,CONFIGURE_TIME,DEPARTMENT,USER,CPU,RAM,ROM,OS,BROWSER,OFFICE_SOFTWARE,USED_FOR,IP_ADDRESS,MAC_ADDRESS,REGION)

@@ -4,17 +4,21 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.xjtu.iqa.mapper.FaqClassifyMapper;
 import com.xjtu.iqa.mapper.UserQuestionMapper;
 import com.xjtu.iqa.po.FaqClassify;
 import com.xjtu.iqa.service.EventManagerService;
+import com.xjtu.iqa.util.JsonUtil;
 import com.xjtu.iqa.vo.EventView;
 import com.xjtu.iqa.vo.Event_AnswerView;
 
@@ -92,5 +96,27 @@ public class EventManagerController {
 
 		modelAndView.addObject("UnResolvedEventDetail", unResolvedEventDetail);
 		return modelAndView;
+	}
+	
+	/**
+	 * 忽略用户提问
+	 */
+	@ResponseBody
+	@RequestMapping(value="ignoreUserQuestion",method=RequestMethod.POST)
+	public String ignoreUserQuestion(HttpServletRequest request,HttpSession session){	
+		String username = (String) session.getAttribute("username");
+		JSONObject jsonObject = new JSONObject();
+		if (username==null) {
+			jsonObject.put("value", "0");
+			String result = JsonUtil.toJsonString(jsonObject); 			
+			return result;
+		}else{
+			String userQuestionId = request.getParameter("userQuestionId");	
+			//更新tbl_robotanswer表用户问题状态 -- 2是忽略
+			eventManagerService.updateQuestionState(userQuestionId,2);
+			jsonObject.put("value", "1");
+			String result = JsonUtil.toJsonString(jsonObject);
+			return result;
+		}
 	}
 }

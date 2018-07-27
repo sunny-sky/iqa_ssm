@@ -7,14 +7,14 @@ function deleteFAQ(id){
     if (confirm("确认删除？")) {
 		$.ajax({
 			type : "post",
-			url : base+"/deleteFAQ.html",
+			url : "deleteFAQ",
 			data : {
 				"faqQuestionId" : faqQuestionId
 			},
 			dataType : "json",
 			success : function(data) {
 			 if(data.value=="0"){
-	 				self.location='login.html';
+	 				self.location='login';
 	 			}else if(data.value=="1"){
 					document.getElementById('success').style.display='block';
 					setTimeout("codefans()",3000);
@@ -41,7 +41,7 @@ function lookMoreFaqInfo(id) {
 	
 	$.ajax({
         type: "POST",
-        url: base+"/lookMoreFaqInfo.html",
+        url: "lookMoreFaqInfo",
         data: {
             "faqQuestionId":faqQuestionId
         },
@@ -79,14 +79,14 @@ function selectClassify( ) {
     
     $.ajax({
         type: "POST",
-        url: base+"/selectClassify.html",
+        url: "selectClassify",
         data: {
         	"classifyId":classifyId
         },
         dataType: "json",
         success: function(data) {
         	if(data.value=="0"){
-				self.location='login.html';
+				self.location='login';
 			}else if(data.value=="1"){
 				var faqList = data.faqAudited; //faq问题列表
 				

@@ -62,7 +62,7 @@ if(na.test($("#title").val())&&kw.test($("#keywords").val())&&$("#subspecialCate
 		var from = "event";
 		$.ajax({
 			type:"POST",
-			url:base+"/saveFAQ.html",
+			url:"saveFAQ",
 			data:{
 				"questionId":questionId,
 				"title":title,
@@ -75,7 +75,7 @@ if(na.test($("#title").val())&&kw.test($("#keywords").val())&&$("#subspecialCate
 			dataType:"json",
 			success:function(data){
 				if(data.value=="0"){
-					self.location='login.html';
+					self.location='login';
 				}else if(data.value=="1"){
 					alert("添加成功");
 					self.location.href = "eventPage";

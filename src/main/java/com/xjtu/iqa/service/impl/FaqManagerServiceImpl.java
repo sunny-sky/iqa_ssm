@@ -1,7 +1,10 @@
 package com.xjtu.iqa.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import com.xjtu.iqa.mapper.FaqClassifyMapper;
 import com.xjtu.iqa.mapper.FaqPictureMapper;
 import com.xjtu.iqa.mapper.FaqQuestionMapper;
 import com.xjtu.iqa.mapper.UserMapper;
+import com.xjtu.iqa.po.FaqAnswer;
 import com.xjtu.iqa.po.FaqPicture;
 import com.xjtu.iqa.po.FaqQuestion;
 import com.xjtu.iqa.service.FaqManagerService;
@@ -149,5 +153,67 @@ public class FaqManagerServiceImpl implements FaqManagerService {
 	public List<FaqPicture> faqPicList(int state, int num) {
 		List<FaqPicture> faqPicList = faqPictureMapper.faqPicture(state, num);
 		return faqPicList;
+	}
+	
+	/**
+	 * 获取faq问题及答案信息
+	 * @param q
+	 * @return
+	 */
+	public FaqView getAllFaqInfo(String faqQuestionId) {
+		//待编辑faq视图
+		FaqView faqEdit = new FaqView();		
+		if (faqQuestionId!=null) {
+			//获取faqQuestionId对应的问题列表
+			List<FaqQuestion> faqQuserionList = faqQuestionMapper.getFaqQuestionInfo(faqQuestionId);
+			
+			//获取faqQuestionId对应的答案列表
+			List<FaqAnswer> faqAnswerList = faqAnswerMapper.getAnswerByQuestionId(faqQuestionId);
+			
+			faqEdit.setFAQQUESTIONID(faqQuestionId);
+			faqEdit.setFAQTITLE(faqQuserionList.get(0).getFAQTITLE());
+			
+			String classifyName = faqClassifyMapper.getClassifyNameById(faqQuserionList.get(0).getFAQCLASSIFYID());
+			faqEdit.setFAQCLASSIFYID(faqQuserionList.get(0).getFAQCLASSIFYID());
+			faqEdit.setFAQCLASSIFYNAME(classifyName);
+		
+			faqEdit.setFAQKEYWORDS(faqQuserionList.get(0).getFAQKEYWORDS());
+			faqEdit.setFAQDESCRIPTION(faqQuserionList.get(0).getFAQDESCRIPTION());
+			faqEdit.setFAQCONTENT(faqAnswerList.get(0).getFAQCONTENT());
+			
+			String username = userMapper.getUserNameById(faqQuserionList.get(0).getUSERID());
+			faqEdit.setUSERNAME(username);
+		}
+		return faqEdit;
+	}
+	
+	/**
+	 * 查看username发表的title faq的信息
+	 */
+	public List<FaqQuestion> faqAdd(String title, String username) {
+		//获取用户ID
+		String userId = userMapper.getUserIdByName(username);
+		
+		//判断是否重复添加
+		List<FaqQuestion> isExist = faqQuestionMapper.titleIsExist(title,userId);
+		
+		return isExist;
+	}
+	
+	/**
+	 * faq首页面推荐栏图片更新
+	 */
+	public void addFaqPic(String username, String imgPath) {
+		FaqPicture faqPicturePersistence = new FaqPicture();
+		faqPicturePersistence.setFAQPICTUREID(UUID.randomUUID().toString());
+		faqPicturePersistence.setIMGPATH(imgPath);
+		String UserId = userMapper.getUserIdByName(username);
+		faqPicturePersistence.setUSERID(UserId);
+		Date date=new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String createTime = format.format(date);
+		faqPicturePersistence.setTIME(createTime);
+		faqPicturePersistence.setSTATE(1);
+		faqPictureMapper.insert(faqPicturePersistence);		
 	}
 }

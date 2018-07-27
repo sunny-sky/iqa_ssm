@@ -29,4 +29,5 @@ public interface FaqPictureMapper {
 	// 修改faq推荐栏图片标题
 	void updateTitle(String faqPicId, String picTitle);
 
+
 }

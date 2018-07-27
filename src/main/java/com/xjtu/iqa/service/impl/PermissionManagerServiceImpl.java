@@ -1,6 +1,8 @@
 package com.xjtu.iqa.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -106,6 +108,40 @@ public class PermissionManagerServiceImpl implements PermissionManagerService {
 			// 移除角色已获取的权限
 			rolePermissionMapper.deletePermissionToRole(roleId, permissionId);
 		}
+	}
+	
+	//增加权限
+	public void addPermission(String logicName, String physicalName) {
+		Permission permissionPersistence = new Permission();
+		permissionPersistence.setPERMISSIONID(UUID.randomUUID().toString());
+		permissionPersistence.setPERMISSIONPHYSICALNAME(physicalName);
+		permissionPersistence.setPERMISSIONLOGICNAME(logicName);
+		
+		Date date=new Date();
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String time = format.format(date);
+		permissionPersistence.setTIME(time);
+    	permissionMapper.insert(permissionPersistence);
+	}
+	
+	//更改权限
+	public void updatePermission(String permissionId, String physicalName, String logicName) {
+		Permission permissionPersistence = new Permission();
+		permissionPersistence.setPERMISSIONID(permissionId);
+		permissionPersistence.setPERMISSIONPHYSICALNAME(physicalName);
+		permissionPersistence.setPERMISSIONLOGICNAME(logicName);		
+		Date date=new Date();
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String time = format.format(date);   
+    	permissionPersistence.setTIME(time);
+    	permissionMapper.updateByPrimaryKey(permissionPersistence);
+	}
+	
+	//删除权限
+	public void deletePermission(String permissionId) {
+		
+		permissionMapper.deletePermission(permissionId);
+		
 	}
 
 }

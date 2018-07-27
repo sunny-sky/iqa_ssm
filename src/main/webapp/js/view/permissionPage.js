@@ -6,7 +6,7 @@ function addPermission() {
     var physicalName = $('#addPhysicalName').val();  
     $.ajax({
         type: "POST",
-        url: base+"/addPermission.html",
+        url: "addPermission",
         data: {
             "logicName":logicName,
             "physicalName":physicalName
@@ -84,7 +84,7 @@ function update() {
     if(permissionId!=null){
     $.ajax({
         type: "POST",
-        url: base+"/updatePermission.html",
+        url: "updatePermission",
         data: {
             "permissionId":permissionId,
             "logicName":logicName,
@@ -127,7 +127,7 @@ function deletePermission(id){
     if (confirm("确认将该权限删除？未经上级同意，禁止删除！")) {
     $.ajax({
         type: "POST",
-        url: base+"/deletePermission.html",
+        url: "deletePermission",
         data: {
             "permissionId":permissionId
         },

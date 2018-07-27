@@ -87,4 +87,13 @@ public class EventManagerServiceImpl implements EventManagerService {
 	
 		return eventView;
 	}
+	
+	/**
+	 * abstract:事件未处理_忽略用户问题 2是忽略
+	 */
+	@Override
+	public void updateQuestionState(String userQuestionId, int questionState) {
+		robotAnswerMapper.updateRobotAnswerState(userQuestionId, questionState);
+		
+	}
 }

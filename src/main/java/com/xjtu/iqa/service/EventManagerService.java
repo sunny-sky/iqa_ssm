@@ -14,7 +14,7 @@ public interface EventManagerService {
 	/**
 	 * abstract:事件未处理_忽略用户问题 2是忽略
 	 */
-//	void updateQuestionState(String userQuestionId, int questionState);
+	void updateQuestionState(String userQuestionId, int questionState);
 	
 	/**
 	 * abstract:已处理事件_当用户对系统回复的答案满意时，即tbl_robotAnswer问答表中满意字段置为1

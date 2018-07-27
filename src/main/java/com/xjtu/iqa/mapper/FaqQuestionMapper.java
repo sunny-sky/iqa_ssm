@@ -24,7 +24,7 @@ public interface FaqQuestionMapper {
 
 	int updateByPrimaryKey(FaqQuestion record);
 
-	// zyq_robot-根据二级分类号获取faq问题信息_根据收藏量取前三
+	// robot-根据二级分类号获取faq问题信息_根据收藏量取前三
 	List<FaqQuestion> SecondClassify_robot(String ClassifyId);
 
 	// 获取该分类下faq信息的总数
@@ -39,16 +39,16 @@ public interface FaqQuestionMapper {
 	// 根据分类号获取数据
 	List<FaqQuestion> faq1_faqPersistences2(String faqClassify, int faqState, int startNumber, int number);
 
-	// zyq_faq2_知识列表
+	// faq2_知识列表
 	List<FaqQuestion> faq2_faqlist(String ClassifyId, int faqState, int pagenow, int number);
 
-	// zzl_记录用户提问记录_查看用户提问是否为faq中的内容_2017年10月22日11:43:43
+	// 记录用户提问记录_查看用户提问是否为faq中的内容_2017年10月22日11:43:43
 	boolean getFaqQuestion(String comment);
 
-	// zyq_faq_查看用户动态
+	// faq_查看用户动态
 	List<FaqQuestion> faq_userDynamics(int faqState, int number);
 
-	// zzl_获取待审核faq_2017年11月6日20:02:27
+	// 获取待审核faq_2017年11月6日20:02:27
 	List<FaqQuestion> faqPendingAudits(int faqState);
 
 	// faq_未登录用户推荐_2017年9月14日21:16:18
@@ -60,7 +60,7 @@ public interface FaqQuestionMapper {
 	// 判断是创建知识还是修改知识
 	boolean personal2_Ismodify(String faqquestionid, String modifynumber);
 
-	// zyq_faq3_根据知识ID找类型classify
+	// faq3_根据知识ID找类型classify
 	String faq3_faqclassifyId(String QuestionId);
 
 	// 根据faq问题id获取用户id
@@ -72,7 +72,7 @@ public interface FaqQuestionMapper {
 	// 获取faq浏览量
 	String getFaqScan(String questionId);
 
-	// zyq_faq3_知识内容
+	// faq3_知识内容
 	List<FaqQuestion> faq3_faqcontent(String QuestionId, int faqstate);
 
 	// 删除待审核faq
@@ -105,13 +105,13 @@ public interface FaqQuestionMapper {
 	// 获取前200条faq !!!未使用
 	List<FaqQuestion> getFaq();
 
-	// zyq_robot_查看所以的faq信息 !!!未使用
+	// robot_查看所以的faq信息 !!!未使用
 	List<FaqQuestion> getFaqTotal();
 
 	// 获取一级分类名及各分类数量
 	int getQuestionCount(String faqclassifyid);
 
-	//// 获取待审核FAQ总数
+	// 获取待审核FAQ总数
 	int getCount(int faqState);
 
 	// 获取该分类下且faqState=2的总条数

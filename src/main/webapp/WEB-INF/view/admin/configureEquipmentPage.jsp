@@ -447,7 +447,7 @@ $("input").blur(function() {
    
     
    <script>
-   
+   var base = $('#base').val();
     /* 获取要编辑的计算机信息 */
     function editComputerInfo(user,department) {
     	var user = user;

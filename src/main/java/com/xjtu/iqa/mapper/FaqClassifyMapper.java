@@ -20,10 +20,10 @@ public interface FaqClassifyMapper {
 
 	int updateByPrimaryKey(FaqClassify record);
 
-	// zyq_robot_分类_获取一级分类
+	// robot_分类_获取一级分类
 	List<FaqClassify> FirstClassify_robot();
 
-	// zyq_question_查看问答模块的分类
+	// question_查看问答模块的分类
 	String question_ClassifyListByName(String ClassifyName, String faqParentId);
 
 	// 通过分类id查找分类名
@@ -41,10 +41,10 @@ public interface FaqClassifyMapper {
 	// 获取parentId的下一级分类信息_按照浏览量和收藏量的加权
 	List<FaqClassify> SecondClassify_robot2(String ParentId);
 
-	// zyq_faq1_下面4栏推荐_按照浏览量
+	// faq1_下面4栏推荐_按照浏览量
 	List<FaqClassify> faq1_SecondClassify(String ParentId);
 
-	// zyq_spider_按照分类名称查找
+	// spider_按照分类名称查找
 	List<FaqClassify> spider_ClassifyListByName(String ClassifyName, String parentId);
 
 	// 根据parentId获取二级分类信息
